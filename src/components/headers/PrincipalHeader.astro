@@ -1,0 +1,38 @@
+---
+import DarkLogo from "../../assets/img/dark-logo.svg";
+import PrimaryButton from "../buttons/PrimaryButton.astro";
+---
+
+<header class="bg-primary-blue w-full flex justify-center">
+  <div
+    class="header__container flex flex-row justify-between items-center w-[80%] max-w-[1600px] py-6"
+  >
+    <DarkLogo height={52} />
+    <nav>
+      <ul class="flex items-center gap-8">
+        <li>
+          <a href="/" class="text-white hover:underline font-medium">INICIO</a
+          >
+        </li>
+        <li>
+          <a href="/productos" class="text-white hover:underline font-medium"
+            >PRODUCTOS</a
+          >
+        </li>
+        <li>
+          <a href="/contacto" class="text-white hover:underline font-medium"
+            >NOSOTROS</a
+          >
+        </li>
+        <li>
+          <a href="/contacto" class="text-white hover:underline font-medium"
+            >CONTACTO</a
+          >
+        </li>
+        <li>
+          <PrimaryButton title="!Escríbenos YA!"/>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
