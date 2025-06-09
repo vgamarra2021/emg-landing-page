@@ -1,18 +1,18 @@
 ---
 import DarkLogo from "../../assets/img/dark-logo.svg";
 import PrimaryButton from "../buttons/PrimaryButton.astro";
+import SecondaryButton from "../buttons/SecondaryButton.astro";
 ---
 
-<header class="bg-primary-blue w-full flex justify-center">
+<header class="bg-primary-blue/70 w-full flex justify-center z-10 relative">
   <div
-    class="header__container flex flex-row justify-between items-center w-[80%] max-w-[1600px] py-6"
+    class="header__container flex flex-row justify-between items-center custom-container py-6"
   >
     <DarkLogo height={52} />
     <nav>
       <ul class="flex items-center gap-8">
         <li>
-          <a href="/" class="text-white hover:underline font-medium">INICIO</a
-          >
+          <a href="/" class="text-white hover:underline font-medium">INICIO</a>
         </li>
         <li>
           <a href="/productos" class="text-white hover:underline font-medium"
@@ -30,7 +30,7 @@ import PrimaryButton from "../buttons/PrimaryButton.astro";
           >
         </li>
         <li>
-          <PrimaryButton title="!Escríbenos YA!"/>
+          <PrimaryButton title="!Escríbenos YA!" />
         </li>
       </ul>
     </nav>

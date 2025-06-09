@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+}
+const { title, subtitle } = Astro.props;
+---
+
+<div class="secondary-header relative -mt-[100px]">
+  <img
+    src="src/assets/img/products-header-bg.jpg"
+    alt="EMG Productos de Seguridad"
+    class="absolute inset-0 w-full h-full object-cover -z-10"
+  />
+  <div class="absolute size-full -z-10">
+    <div class="bg-gradient-to-b from-black/30 to-black/80 size-full"></div>
+  </div>
+  <div
+    class="secondary-header__container custom-container flex justify-end items-center py-14 flex-col text-white h-[280px] z-10"
+  >
+    <h1 class="text-3xl font-bold">{title}</h1>
+    <p class="text-xl mt-2 text-center">{subtitle}</p>
+  </div>
+</div>

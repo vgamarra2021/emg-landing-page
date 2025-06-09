@@ -1,0 +1,27 @@
+---
+import CategoriesIcon from "@assets/icons/categories.svg";
+
+interface Props {
+  message?: string;
+}
+
+const {
+  message = "Protege a tu equipo con EPP certificados y asesoría profesional.",
+} = Astro.props;
+---
+
+<div
+  class="h-[50px] w-full bg-primary-blue flex justify-between items-center text-white"
+>
+  <div
+    class="header-banner__container custom-container flex flex-row justify-between items-center"
+  >
+    <div class="header-banner__categories flex flex-row items-center gap-1 cursor-pointer">
+      <CategoriesIcon/>
+      <p>Categorías</p>
+    </div>
+    <div class="header-banner__message">
+      <p>{message}</p>
+    </div>
+  </div>
+</div>

@@ -9,3 +9,7 @@
 * {
   font-family: "Saira", sans-serif;
 }
+
+.custom-container {
+  @apply w-[80%] max-w-[1600px] mx-auto;
+}
