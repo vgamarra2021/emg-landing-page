@@ -1,0 +1,72 @@
+---
+import PrimaryFeatureCard from "@components/cards/PrimaryFeatureCard.astro";
+import FastDeliveryIcon from "@assets/icons/fast-delivery.svg";
+import CertificateIcon from "@assets/icons/certificate.svg";
+import SpecialistIcon from "@assets/icons/specialist.svg";
+import ContrastButton from "@components/buttons/ContrastButton.astro";
+import IndustryCard from "@components/cards/IndustryCard.astro";
+---
+
+<section class="custom-section relative overflow-hidden">
+  <div class="industries-section__background absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-white/85"></div>
+    <img
+      src="src/assets/img/industries-bg.jpg"
+      alt="Fondo Industrias EMG"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="custom-container flex flex-col relative z-10 gap-14">
+    <div class="flex flex-col md:flex-row justify-between gap-10">
+      <PrimaryFeatureCard
+        title="Entrega rápida"
+        subtitle="Recibe tus pedidos sin demoras."
+      >
+        <FastDeliveryIcon height={100} width="100px" />
+      </PrimaryFeatureCard>
+      <PrimaryFeatureCard
+        title="Asesoría Especializada"
+        subtitle="Te guiamos según tu industria."
+      >
+        <SpecialistIcon height={100} width="100px" />
+      </PrimaryFeatureCard>
+      <PrimaryFeatureCard
+        title="Productos Certificados"
+        subtitle="Calidad y seguridad garantizadas."
+      >
+        <CertificateIcon height={100} width="100px" />
+      </PrimaryFeatureCard>
+    </div>
+
+    <div class="flex flex-row justify-between items-center gap-16">
+      <div class="flex flex-row gap-6 ">
+        <div class="flex flex-col gap-6 overflow-hidden h-[700px] w-[300px]">
+          <IndustryCard title="Sector Industrial"  image="industrial-card-bg" aspect="16/10"/>
+          <IndustryCard title="Sector de Construcción" image="construction-card-bg"/>
+          <IndustryCard title="Sector Petrolero" image="oil-card-bg" aspect="16/10"/>
+        </div>
+        <div class="flex flex-col gap-6 overflow-hidden h-[700px] w-[300px]">
+          <IndustryCard title="Sector Agrícola" image="agricultural-card-bg" aspect="16/10"/>
+          <IndustryCard title="Sector Minero" image="mining-card-bg"/>
+          <IndustryCard title="Sector Pesquero" image="fishing-card-bg" aspect="16/10"/>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h2 class="text-3xl font-bold text-primary-blue text-pretty">
+          Soluciones seguras para cada industria
+        </h2>
+        <h3 class="text-2xl font-semibold text-primary-blue">
+          ¡Cada industria es única! <br /> Por eso, nuestras soluciones también lo
+          son.
+        </h3>
+        <p class="text-2xl text-primary-blue">
+          Diseñamos y adaptamos equipos de protección para las exigencias reales
+          de cada sector, asegurando rendimiento, durabilidad y respaldo técnico
+          donde más se necesita.
+        </p>
+        <ContrastButton title="Explorar Productos" />
+      </div>
+    </div>
+  </div>
+</section>

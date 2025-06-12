@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  aspect?: string;
+}
+
+const { title, image, aspect = "9/13" } = Astro.props;
+---
+
+<article
+  class={`rounded-2xl overflow-hidden relative aspect-[${aspect}] w-full flex-shrink-0`}
+>
+  <div class="flex absolute z-10 p-4 size-full items-end">
+    <p class="font-semibold text-2xl text-shadow-xs text-white">{title}</p>
+  </div>
+  <div class="flex absolute -z-10 size-full">
+    <div
+      class="absolute size-full -z-10 bg-gradient-to-b from-black/10 to-black/80"
+    >
+    </div>
+    <img
+      class="size-full object-cover -z-20 absolute"
+      src={`src/assets/img/${image}.jpg`}
+      alt={title + "bg"}
+    />
+  </div>
+</article>

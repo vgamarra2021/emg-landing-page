@@ -1,0 +1,44 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+---
+
+<section class="hero-section relative aspect-[16/9] w-full">
+  <div
+    class="hero-content absolute flex flex-col justify-center items-start size-full z-0 pt-[100px] "
+  >
+    <div class="custom-container flex flex-col gap-6">
+      <h1 class="text-6xl text-white font-bold max-w-md leading-18">
+        CALIDAD Y GARANTÍA EN CADA PROCESO
+      </h1>
+      <PrimaryButton title="Explorar Productos" />
+    </div>
+  </div>
+  <div class="hero-image absolute inset-0 size-full -z-10">
+    <img class="size-full object-cover" src="src/assets/img/hero-industrial-bg.jpg" alt="Hero Image" />
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    max-height: calc(100dvh - 100px);
+  }
+</style>
+
+<script type="module">
+    import Swiper, { Navigation, Pagination } from "swiper";
+    import "swiper/css";
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+
+    const swiper = new Swiper(".swiper-container", {
+        modules: [Navigation, Pagination],
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>

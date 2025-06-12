@@ -1,5 +1,6 @@
 ---
 import CategoriesIcon from "@assets/icons/categories.svg";
+import AlarmIcon from "@assets/icons/alarm.svg";
 
 interface Props {
   message?: string;
@@ -20,8 +21,10 @@ const {
       <CategoriesIcon/>
       <p>Categorías</p>
     </div>
-    <div class="header-banner__message">
+    <div class="header-banner__message flex gap-2 items-center">
+      <AlarmIcon/>
       <p>{message}</p>
+      <AlarmIcon/>
     </div>
   </div>
 </div>

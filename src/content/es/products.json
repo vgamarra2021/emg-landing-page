@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Casco north A59R con rachet clase E",
+        "description": "Casco de seguridad con rachet, clase E, color blanco, talla 7 1/8 - 7 1/2",
+        "brand": "North",
+        "category": "Protección de cabeza",
+        "tags": [
+            "Casco de 4 puntas",
+            "Cascos de seguridad",
+            "Construcción"
+        ],
+        "imagePath": "caso-north.jpg",
+        "status": true
+    },
+    {
+        "id": 2,
+        "name": "Guantes de nitrilo resistentes",
+        "description": "Guantes de seguridad de nitrilo, resistentes a químicos y abrasión, talla M",
+        "brand": "Ansell",
+        "category": "Protección de manos",
+        "tags": [
+            "Guantes de seguridad",
+            "Resistentes a químicos",
+            "Industria"
+        ],
+        "imagePath": "guantes-nitrilo.jpg",
+        "status": true
+    },
+    {
+        "id": 3,
+        "name": "Lentes de seguridad antirreflejo",
+        "description": "Lentes de seguridad con protección UV y antirreflejo, diseño ergonómico",
+        "brand": "3M",
+        "category": "Protección ocular",
+        "tags": [
+            "Lentes de seguridad",
+            "Protección UV",
+            "Ergonómicos"
+        ],
+        "imagePath": "lentes-seguridad.jpg",
+        "status": true
+    }
+]

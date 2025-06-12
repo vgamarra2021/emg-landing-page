@@ -1,10 +1,21 @@
 ---
+import { getCollection, getEntry } from "astro:content";
 import HeaderBanner from "../components/common/HeaderBanner.astro";
 import PrincipalHeader from "../components/headers/PrincipalHeader.astro";
 import Layout from "../layouts/Layout.astro";
+import HeroSection from "@components/sections/HeroSection.astro";
+import HighlightBanner from "@components/common/HighlightBanner.astro";
+import IndustriesSection from "@components/sections/IndustriesSection.astro";
+
+const aux = await getCollection("products");
+
+console.log(aux)
 ---
 
 <Layout title="EMG Suministros Safety">
   <HeaderBanner />
   <PrincipalHeader />
+  <HeroSection client:load/>
+  <HighlightBanner />
+  <IndustriesSection />
 </Layout>

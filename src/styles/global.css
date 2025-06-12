@@ -13,3 +13,7 @@
 .custom-container {
   @apply w-[80%] max-w-[1600px] mx-auto;
 }
+
+.custom-section {
+  @apply py-14 w-full;
+}
