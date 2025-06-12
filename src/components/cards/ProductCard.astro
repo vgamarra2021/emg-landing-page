@@ -1,0 +1,25 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+import SecondaryButton from "@components/buttons/SecondaryButton.astro";
+---
+
+<article
+  class="flex flex-col gap-2 bg-white overflow-hidden rounded-xl p-4 w-[300px] shrink-0"
+>
+  <img
+    class="aspect-square object-cover"
+    src="src/assets/img/products/product1.jpg"
+    alt="Imagen de Producto"
+  />
+  <p class="uppercase text-primary-blue w-full font-semibold text-lg">
+    POLO DE SEGURIDAD MANGA LARGA
+  </p>
+  <div class="flex flex-col gap-2">
+    <PrimaryButton title="COTIZAR" className="w-full text-center" />
+    <SecondaryButton
+      title="DETALLE DE PRODUCTO"
+      color="primary-orange"
+      className="w-full"
+    />
+  </div>
+</article>

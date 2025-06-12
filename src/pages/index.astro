@@ -6,6 +6,8 @@ import Layout from "../layouts/Layout.astro";
 import HeroSection from "@components/sections/HeroSection.astro";
 import HighlightBanner from "@components/common/HighlightBanner.astro";
 import IndustriesSection from "@components/sections/IndustriesSection.astro";
+import ProductsSection from "@components/sections/ProductsSection.astro";
+import FeatureSeparator from "@components/common/FeatureSeparator.astro";
 
 const aux = await getCollection("products");
 
@@ -18,4 +20,6 @@ console.log(aux)
   <HeroSection client:load/>
   <HighlightBanner />
   <IndustriesSection />
+  <ProductsSection />
+  <FeatureSeparator />
 </Layout>

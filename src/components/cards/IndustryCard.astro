@@ -9,10 +9,11 @@ const { title, image, aspect = "9/13" } = Astro.props;
 ---
 
 <article
-  class={`rounded-2xl overflow-hidden relative aspect-[${aspect}] w-full flex-shrink-0`}
+  class={`rounded-2xl overflow-hidden relative w-full flex-shrink-0`}
+  style={`aspect-ratio: ${aspect}`}
 >
-  <div class="flex absolute z-10 p-4 size-full items-end">
-    <p class="font-semibold text-2xl text-shadow-xs text-white">{title}</p>
+  <div class="flex absolute z-10 p-3 size-full items-end">
+    <p class="font-semibold text-xl text-shadow-xs text-white w-3/4">{title}</p>
   </div>
   <div class="flex absolute -z-10 size-full">
     <div

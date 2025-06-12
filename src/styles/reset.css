@@ -1,8 +1,23 @@
+/* Improved CSS Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+
 }
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 p {
   overflow-wrap: break-word;
   text-wrap: pretty;
@@ -15,11 +30,6 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
 }
 
 img,

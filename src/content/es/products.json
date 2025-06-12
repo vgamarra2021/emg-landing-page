@@ -11,7 +11,8 @@
             "Construcción"
         ],
         "imagePath": "caso-north.jpg",
-        "status": true
+        "status": true,
+        "showOnHome": true
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@
             "Industria"
         ],
         "imagePath": "guantes-nitrilo.jpg",
-        "status": true
+        "status": true,
+        "showOnHome": true
     },
     {
         "id": 3,
@@ -39,6 +41,7 @@
             "Ergonómicos"
         ],
         "imagePath": "lentes-seguridad.jpg",
-        "status": true
+        "status": true,
+        "showOnHome": true
     }
 ]
