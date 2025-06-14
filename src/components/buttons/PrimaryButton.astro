@@ -1,11 +1,33 @@
 ---
 interface Props {
   title: string;
+  color?: string;
   className?: string;
 }
-const { title, className }: Props = Astro.props;
+const { title, color, className }: Props = Astro.props;
 ---
 
-<div class={`bg-primary-orange w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ''}`}>
-  <p class="text-white font-semibold text-lg">{title}</p>
-</div>
+{
+  color === "primary-blue" ? (
+    <div
+      class={`flex items-center justify-center gap-2 bg-primary-blue w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
+    >
+      <p class="text-white font-semibold text-lg">{title}</p>
+      <slot />
+    </div>
+  ) : color === "yellow" ? (
+    <div
+      class={`flex items-center justify-center gap-2 bg-yellow-400 w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
+    >
+      <p class="text-black font-semibold text-lg">{title}</p>
+      <slot />
+    </div>
+  ) : (
+    <div
+      class={`flex items-center justify-center gap-2 bg-primary-orange w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
+    >
+      <p class="text-white font-semibold text-lg">{title}</p>
+      <slot />
+    </div>
+  )
+}

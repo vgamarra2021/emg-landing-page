@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  image: string;
+}
+
+const { title, image } = Astro.props;
+---
+
+<article
+  class="aspect-[11/16] relative w-[300px] overflow-hidden rounded-xl cursor-pointer hover:border-3 border-secondary-orange duration-300 group"
+>
+  <div class="absolute size-full -z-10">
+    <div
+      class="absolute size-full bg-gradient-to-t transition-colors duration-300 from-black/70 to-black/10 group-hover:from-black/90 group-hover:to-black/10 -z-10"
+    >
+    </div>
+    <img
+      class="absolute object-cover size-full group-hover:scale-110 transition-transform duration-300 -z-20"
+      src={`/src/assets/img/categories/${image}.jpg`}
+      alt="Categoría de Seguridad"
+    />
+  </div>
+  <div class="flex flex-col size-full justify-end items-center z-10 p-4 gap-3">
+    <slot />
+    <p class="text-white uppercase font-semibold text-xl text-center">
+      {title}
+    </p>
+  </div>
+</article>

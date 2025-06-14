@@ -8,18 +8,44 @@ import HighlightBanner from "@components/common/HighlightBanner.astro";
 import IndustriesSection from "@components/sections/IndustriesSection.astro";
 import ProductsSection from "@components/sections/ProductsSection.astro";
 import FeatureSeparator from "@components/common/FeatureSeparator.astro";
+import CategoriesSection from "@components/sections/CategoriesSection.astro";
+import SafetyTipsSection from "@components/sections/SafetyTipsSection.astro";
+import ElectroSection from "@components/sections/ElectroSection.astro";
+import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
+import Footer from "@components/common/Footer.astro";
 
 const aux = await getCollection("products");
 
-console.log(aux)
+console.log(aux);
 ---
 
 <Layout title="EMG Suministros Safety">
   <HeaderBanner />
   <PrincipalHeader />
-  <HeroSection client:load/>
-  <HighlightBanner />
+  <HeroSection client:load />
+  <HighlightBanner
+    buttonTitle="Contáctanos"
+    title="La seguridad es una inversión en bienestar y productividad..."
+  />
   <IndustriesSection />
   <ProductsSection />
   <FeatureSeparator />
+  <CategoriesSection />
+  <HighlightBanner
+    buttonTitle="Solicitar asesoría"
+    title="La seguridad es una inversión en bienestar y productividad..."
+  >
+    <p class="text-white text-xl max-w-5xl">
+      En <strong>EMG</strong> trabajamos contigo para que cada espacio de trabajo
+      esté protegido con equipos certificados, asesoría profesional y soluciones
+      a la medida.
+    </p>
+    <strong class="text-white text-lg font-semibold"
+      >Tu seguridad no espera. Nosotros tampoco.</strong
+    >
+  </HighlightBanner>
+  <SafetyTipsSection />
+  <ElectroSection />
+  <OurAlliesSection />
+  <Footer />
 </Layout>

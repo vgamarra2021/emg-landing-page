@@ -14,6 +14,17 @@ const products = defineCollection({
   }),
 });
 
+const tips = defineCollection({
+  loader: file("src/content/es/tips.json"),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    number: z.string(),
+    image: z.string()
+  }),
+});
+
 export const collections = {
   products,
+  tips
 };
