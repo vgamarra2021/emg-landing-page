@@ -1,0 +1,36 @@
+---
+import SafetyTipCard from "@components/cards/SafetyTipCard.astro";
+import { getCollection } from "astro:content";
+
+const tips = await getCollection("tips");
+
+console.log(tips);
+---
+
+<section class="custom-section">
+  <div class="custom-container flex flex-col gap-6">
+    <div class="flex flex-col gap-4">
+      <h2 class="text-center text-primary-orange text-2xl font-bold">
+        Consejos de Seguridad
+      </h2>
+      <p class="text-center text-xl text-primary-blue">
+        En <strong>EMG Suministro Safety</strong> sabemos que la prevención es la
+        mejor herramienta para evitar accidentes. Por eso, te compartimos recomendaciones
+        clave para mantener ambientes de trabajo seguros y eficientes.
+      </p>
+    </div>
+
+    <div class="flex flex-row flex-wrap gap-6 justify-center">
+      {
+        tips.map((tip) => (
+          <SafetyTipCard
+            title={tip.data.title}
+            description={tip.data.description}
+            image={tip.data.image}
+            number={tip.data.number}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

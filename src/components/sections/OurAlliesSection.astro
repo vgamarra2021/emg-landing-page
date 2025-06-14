@@ -1,0 +1,28 @@
+---
+import BrandCard from "@components/cards/BrandCard.astro";
+---
+
+<section class="custom-section">
+  <div class="custom-container flex flex-col gap-6">
+    <div class="flex flex-col gap-4">
+      <h2 class="text-center text-primary-orange text-2xl font-bold">
+        Nuestros aliados en Seguridad
+      </h2>
+      <p class="text-center text-xl text-primary-blue">
+        Estas son las marcas líderes que respaldan nuestras soluciones y nos
+        permiten ofrecer equipos confiables y certificados.
+      </p>
+    </div>
+    <div class="w-full">
+      <div id="brand-carousel" class="flex flex-row gap-6 justify-center">
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+        <BrandCard image="msa-safety" />
+      </div>
+    </div>
+  </div>
+</section>

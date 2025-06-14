@@ -1,0 +1,16 @@
+---
+interface Props {
+  image: string;
+  alt?: string;
+}
+
+const { image, alt = "Imagen de Marca Aliada" } = Astro.props as Props;
+---
+
+<div class="flex justify-center items-center size-32 overflow-hidden">
+  <img
+    class="w-full object-cover"
+    src={`src/assets/img/brands/${image}.png`}
+    alt={alt}
+  />
+</div>

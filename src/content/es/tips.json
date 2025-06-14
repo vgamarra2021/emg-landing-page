@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "title": "Evalúa los riesgos",
+        "description": "Identifica los peligros en cada puesto de trabajo y determina los niveles de riesgo asociados.",
+        "number": "01",
+        "image": "safety-tip-1"
+    },
+    {
+        "id": 2,
+        "title": "Usa el EPP adecuado",
+        "description": "Identifica los peligros en cada puesto de trabajo y determina los niveles de riesgo asociados.",
+        "number": "02",
+        "image": "safety-tip-2"
+    },
+    {
+        "id": 3,
+        "title": "Capacita al personal",
+        "description": "Identifica los peligros en cada puesto de trabajo y determina los niveles de riesgo asociados.",
+        "number": "03",
+        "image": "safety-tip-3"
+    },
+    {
+        "id": 4,
+        "title": "Inspecciona antes de usar",
+        "description": "Identifica los peligros en cada puesto de trabajo y determina los niveles de riesgo asociados.",
+        "number": "04",
+        "image": "safety-tip-4"
+    },
+    {
+        "id": 5,
+        "title": "Mantén el orden y limpieza",
+        "description": "Un entorno de trabajo limpio y organizado previene accidentes por caídas, tropiezos o derrames.",
+        "number": "05",
+        "image": "safety-tip-5"
+    },
+    {
+        "id": 6,
+        "title": "Reporta condiciones inseguras",
+        "description": "Fomenta una cultura donde se comuniquen inmediatamente los riesgos o fallas en el entorno laboral.",
+        "number": "06",
+        "image": "safety-tip-6"
+    },
+    {
+        "id": 7,
+        "title": "Da mantenimiento al EPP",
+        "description": "Limpia, almacena y reemplaza el equipo de protección personal de forma periódica.",
+        "number": "07",
+        "image": "safety-tip-7"
+    },
+    {
+        "id": 8,
+        "title": "Promueve la mejora continua",
+        "description": "Actualiza protocolos, mejora los equipos y escucha las sugerencias de los trabajadores para optimizar la seguridad.",
+        "number": "08",
+        "image": "safety-tip-8"
+    }
+]

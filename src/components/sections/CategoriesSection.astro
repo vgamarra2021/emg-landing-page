@@ -1,0 +1,62 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+import CategoryCard from "@components/cards/CategoryCard.astro";
+import RightArrowIcon from "@assets/icons/right-arrow.svg";
+
+import HearingProtectionIcon from "@assets/icons/categories/hearing-protection.svg";
+import HeadProtectionIcon from "@assets/icons/categories/head-protection.svg";
+import HandProtectionIcon from "@assets/icons/categories/hand-protection.svg";
+import EyeProtectionIcon from "@assets/icons/categories/eye-protection.svg";
+import SunProtectionIcon from "@assets/icons/categories/sun-protection.svg";
+import FootProtectionIcon from "@assets/icons/categories/foot-protection.svg";
+import FallProtectionIcon from "@assets/icons/categories/fall-protection.svg";
+import BodyProtectionIcon from "@assets/icons/categories/body-protection.svg";
+import RespiratoryProtectionIcon from "@assets/icons/categories/respiratory-protection.svg";
+import RoadSafetyIcon from "@assets/icons/categories/road-safety.svg";
+
+---
+
+<div class="custom-section bg-light-orange">
+  <div class="flex flex-col custom-container gap-8">
+    <div class="flex flex-row w-full justify-between items-center">
+      <p class="text-primary-orange text-2xl font-bold leading-12">
+        Categorías de Seguridad
+      </p>
+      <PrimaryButton title="Explorar Catálogo">
+        <RightArrowIcon />
+      </PrimaryButton>
+    </div>
+    <div class="flex flex-row gap-6 flex-wrap justify-center z-10">
+      <CategoryCard title="Protección Cabeza" image="head-protection-bg">
+        <HeadProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Ocular" image="eye-protection-bg">
+        <EyeProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Auditiva" image="hearing-protection-bg">
+        <HearingProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Respiratoria" image="respiratory-protection-bg">
+        <RespiratoryProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Manos" image="hand-protection-bg">
+        <HandProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Corporal" image="body-protection-bg">
+        <BodyProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Pies" image="foot-protection-bg">
+        <FootProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Caídas" image="fall-protection-bg">
+        <FallProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Seguridad Vial" image="road-safety-bg">
+        <RoadSafetyIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+      <CategoryCard title="Protección Solar" image="sun-protection-bg">
+        <SunProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      </CategoryCard>
+    </div>
+  </div>
+</div>
