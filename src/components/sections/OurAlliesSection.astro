@@ -1,5 +1,6 @@
 ---
 import BrandCard from "@components/cards/BrandCard.astro";
+import "swiper/css";
 ---
 
 <section class="custom-section">
@@ -14,15 +15,61 @@ import BrandCard from "@components/cards/BrandCard.astro";
       </p>
     </div>
     <div class="w-full">
-      <div id="brand-carousel" class="flex flex-row gap-6 justify-center">
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
-        <BrandCard image="msa-safety" />
+      <div class="swiper w-full" id="brand-carousel">
+        <!-- <div
+          class="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-white to-transparent z-10"
+        >
+        </div>
+        <div
+          class="absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-white to-transparent z-10"
+        >
+        </div> -->
+        <div class="swiper-wrapper flex items-center relative w-full">
+          <div class="swiper-slide"><BrandCard image="msa-safety.png" /></div>
+          <div class="swiper-slide"><BrandCard image="3M.png" /></div>
+          <div class="swiper-slide"><BrandCard image="portwest.png" /></div>
+          <div class="swiper-slide"><BrandCard image="showa.png" /></div>
+          <div class="swiper-slide"><BrandCard image="truper.png" /></div>
+          <div class="swiper-slide"><BrandCard image="deltaplus.png" /></div>
+          <div class="swiper-slide"><BrandCard image="steelpro.png" /></div>
+          <div class="swiper-slide"><BrandCard image="wypall.png" /></div>
+          <div class="swiper-slide"><BrandCard image="caruzzo.png" /></div>
+          <div class="swiper-slide"><BrandCard image="segpro.png" /></div>
+          <div class="swiper-slide"><BrandCard image="clute.png" /></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay } from "swiper/modules";
+
+  const swiper = new Swiper("#brand-carousel", {
+    modules: [Autoplay],
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    spaceBetween: 100,
+    freeMode: true,
+    loop: true,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      // when window width is >= 480px
+      1366: {
+        slidesPerView: 5,
+        spaceBetween: 60,
+      },
+      1920: {
+        slidesPerView: 6,
+        spaceBetween: 80,
+      },
+    },
+  });
+</script>
