@@ -1,12 +1,29 @@
 ---
+import Footer from "@components/common/Footer.astro";
 import HeaderBanner from "../components/common/HeaderBanner.astro";
 import PrincipalHeader from "../components/headers/PrincipalHeader.astro";
 import SecondaryHeader from "../components/headers/SecondaryHeader.astro";
 import Layout from "../layouts/Layout.astro";
+import ContactSection from "@components/sections/ContactSection.astro";
+import ContactMap from "@components/common/ContactMap.astro";
+import HighlightBanner from "@components/common/HighlightBanner.astro";
+import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
 ---
 
 <Layout title="EMG Suministros Safety | Contacto">
   <HeaderBanner />
   <PrincipalHeader />
-  <SecondaryHeader title="Nuestros Productos de Seguridad" subtitle="Explora nuestro catálogo especializado con soluciones confiables para cada necesidad de tu industria."/>
+  <SecondaryHeader
+    image="contact-header-bg"
+    title="Contáctenos"
+    subtitle="Envíanos tus dudas o requerimientos. Estamos listos para ayudarte."
+  />
+  <ContactSection />
+  <ContactMap />
+  <HighlightBanner
+    title="Nuestro conocimiento técnico y experiencia en campo nos permite asesorarte en soluciones efectivas para proteger tu entorno de trabajo."
+    buttonTitle="¡Contáctenos!"
+  />
+  <OurAlliesSection />
+  <Footer />
 </Layout>

@@ -1,0 +1,53 @@
+---
+import ContactDataItem from "./ContactDataItem.astro";
+import HeadSetIcon from "@assets/icons/headset.svg";
+import EmailIcon from "@assets/icons/email.svg";
+import PositionIcon from "@assets/icons/position.svg";
+import TiktokIcon from "@assets/icons/tiktok.svg";
+import FacebookIcon from "@assets/icons/facebook.svg";
+import InstagramIcon from "@assets/icons/instagram.svg";
+---
+
+<article class="p-8 rounded-md relative overflow-hidden w-fit h-fit">
+  <div class="absolute size-full z-10 inset-0">
+    <div class="size-full bg-primary-blue/80 -z-10 absolute"></div>
+    <img
+      class="size-full object-cover -z-20 absolute"
+      src="src/assets/img/contact-data-bg.jpg"
+      alt="Datos de Contacto"
+    />
+  </div>
+  <div class="flex flex-col relative z-20 text-white gap-8">
+    <h3 class="font-semibold text-2xl">Datos de Contacto</h3>
+    <ContactDataItem
+      title="Teléfonos"
+      items={["+51 922 297 479", "+51 957 277 506"]}
+    >
+      <HeadSetIcon />
+    </ContactDataItem>
+    <ContactDataItem
+      title="Ventas"
+      items={[
+        "ventas@emgsuministros.pe",
+        "ichiclla@emgsuministros.pe",
+        "jromani@emgsuministros.pe",
+      ]}
+    >
+      <EmailIcon />
+    </ContactDataItem>
+    <ContactDataItem
+      title="Oficina Principal"
+      items={["Av Los Próceres Urbanización puerta de Pro Mz K4 Lote 1"]}
+    >
+      <PositionIcon />
+    </ContactDataItem>
+    <div class="flex flex-col w-full justify-center gap-2">
+      <p class="text-lg font-semibold text-center">Redes Sociales</p>
+      <div class="flex flex-row gap-2 justify-center">
+        <TiktokIcon />
+        <FacebookIcon />
+        <InstagramIcon />
+      </div>
+    </div>
+  </div>
+</article>

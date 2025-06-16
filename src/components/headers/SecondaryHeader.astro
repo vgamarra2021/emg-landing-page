@@ -2,13 +2,14 @@
 interface Props {
   title: string;
   subtitle: string;
+  image?: string;
 }
-const { title, subtitle } = Astro.props;
+const { title, subtitle, image = 'products-header-bg' } = Astro.props;
 ---
 
-<div class="secondary-header relative -mt-[100px]">
+<div class="secondary-header relative">
   <img
-    src="src/assets/img/products-header-bg.jpg"
+    src={`src/assets/img/${image}.jpg`}
     alt="EMG Productos de Seguridad"
     class="absolute inset-0 w-full h-full object-cover -z-10"
   />

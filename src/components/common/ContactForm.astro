@@ -1,0 +1,44 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+import ContactInputText from "./ContactInputText.astro";
+import ContactTextArea from "./ContactTextArea.astro";
+---
+
+<article class="flex flex-col gap-2 text-primary-blue max-w-[480px]">
+  <p class="text-2xl w-max font-semibold">
+    ¿Buscas una solución segura? Escríbenos
+  </p>
+  <p class="text-xl w-full">
+    Envíanos tus dudas o requerimientos. Estamos listos para ayudarte.
+  </p>
+
+  <form id="contact-form" class="flex flex-col gap-4 mt-2">
+    <ContactInputText
+      label="Nombre:"
+      id="name"
+      placeholder="Ej: Jorge García"
+    />
+    <ContactInputText
+      label="Email:"
+      id="email"
+      placeholder="Ej: jgarcia@ejemplo.com"
+    />
+    <ContactInputText
+      label="Celular:"
+      id="phone"
+      placeholder="Ej: +51 987654321"
+    />
+    <ContactInputText
+      label="RUC/DNI:"
+      id="identifier"
+      placeholder="Ej: 74712901"
+    />
+    <ContactTextArea
+      label="Mensaje:"
+      id="message"
+      placeholder="Ej: Hola!, Quisiera recibir asesoría para elegir los equipos de protección adecuados para mi equipo en faena minera."
+    />
+
+    <PrimaryButton title="Enviar" className="w-full">
+  </form>
+</article>
