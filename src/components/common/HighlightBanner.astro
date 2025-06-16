@@ -5,21 +5,22 @@ import RightArrowIcon from "@assets/icons/right-arrow.svg";
 interface Props {
   title: string;
   buttonTitle: string;
+  size?: string;
 }
 
-const { title, buttonTitle }: Props = Astro.props;
+const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
 ---
 
 <section class="bg-primary-orange custom-section w-full">
   <div class="custom-container flex flex-row justify-between items-center">
     <div class="flex flex-col gap-2">
-      <p class="font-bold text-white text-2xl leading-11">
+      <p class={`font-bold text-white text-${size} leading-11`}>
         {title}
       </p>
       <slot />
     </div>
-    <SecondaryButton title={buttonTitle} >
-        <RightArrowIcon stroke="#fff"/>
+    <SecondaryButton title={buttonTitle}>
+      <RightArrowIcon stroke="#fff" />
     </SecondaryButton>
   </div>
 </section>

@@ -1,0 +1,51 @@
+---
+import DarkLogoIcon from "@assets/dark-logo.svg";
+import AboutUsCard from "@components/cards/AboutUsCard.astro";
+import ShieldIcon from "@assets/icons/shield-2.svg";
+import RocketIcon from "@assets/icons/rocket.svg";
+---
+
+<section class="custom-section">
+  <div
+    class="custom-container flex flex-col xl:flex-row gap-4 xl:gap-10 justify-center items-center"
+  >
+    <div class="flex flex-col gap-4 xl:w-[400px] grow">
+      <h3 class="text-2xl w-max font-semibold">¿Quienes Somos?</h3>
+      <p class="text-xl w-full">
+        <strong class="font-semibold">EMG Suministros Safety</strong> es una empresa
+        especializada en la distribución de Equipos de Protección Personal (EPPs)
+        como cascos, guantes, gafas y otros elementos diseñados para proteger a los
+        trabajadores frente a riesgos laborales y garantizar el cumplimiento de las
+        normativas de seguridad en diversos sectores productivos.
+      </p>
+      <AboutUsCard
+        title="Misión"
+        description="Proteger la integridad de los trabajadores, distribuyendo equipos de protección personal confiables, fomentando una cultura de seguridad y promoviendo condiciones laborales óptimas en todos los sectores productivos."
+      >
+        <ShieldIcon class={"flex shrink-0"} />
+      </AboutUsCard>
+      <AboutUsCard
+        title="Visión"
+        description="Ser la empresa líder en la distribución de EPPs, reconocida por su calidad, innovación y compromiso con la seguridad de los trabajadores en diversos sectores industriales."
+      >
+        <RocketIcon class={"flex shrink-0"} />
+      </AboutUsCard>
+    </div>
+    <div
+      class="relative w-[500px] h-full aspect-[16/10] rounded-md overflow-hidden"
+    >
+      <div class="p-4 z-30 absolute bottom-0 right-0">
+        <DarkLogoIcon />
+      </div>
+      <div
+        class="absolute size-full z-20 bg-gradient-to-br from-primary-blue to-primary-orange opacity-50"
+      >
+      </div>
+      <img
+        class="object-cover absolute size-full rounded-lg z-10"
+        src="/src/assets/img/about-us-bg.jpg"
+        alt="Sobre nosotros"
+      />
+    </div>
+  </div>
+</section>

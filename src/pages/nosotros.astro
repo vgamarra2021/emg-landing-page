@@ -4,11 +4,21 @@ import HeaderBanner from "../components/common/HeaderBanner.astro";
 import PrincipalHeader from "../components/headers/PrincipalHeader.astro";
 import SecondaryHeader from "../components/headers/SecondaryHeader.astro";
 import Layout from "../layouts/Layout.astro";
+import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
+import OurValuesSection from "@components/sections/OurValuesSection.astro";
+import AboutUsSection from "@components/sections/AboutUsSection.astro";
 ---
 
 <Layout title="EMG Suministros Safety | Nosotros">
   <HeaderBanner />
   <PrincipalHeader />
-  <SecondaryHeader image="about-us-header-bg" title="Comprometidos con tu seguridad" subtitle="En EMG, no solo vendemos productos de seguridad: creamos soluciones confiables para proteger lo más importante."/>
+  <SecondaryHeader
+    image="about-us-header-bg"
+    title="Comprometidos con tu seguridad"
+    subtitle="En EMG, no solo vendemos productos de seguridad: creamos soluciones confiables para proteger lo más importante."
+  />
+  <AboutUsSection />
+  <OurValuesSection />
+  <OurAlliesSection />
   <Footer />
 </Layout>

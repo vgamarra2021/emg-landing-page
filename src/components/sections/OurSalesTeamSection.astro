@@ -1,0 +1,43 @@
+---
+import SalesExecutiveCard from "@components/cards/SalesExecutiveCard.astro";
+---
+
+<section class="custom-section relative">
+  <div
+    class="custom-container relative z-20 flex flex-col justify-center items-center gap-8"
+  >
+    <div class="flex flex-col gap-2 justify-center items-center text-center">
+      <h2 class="text-start text-primary-blue text-2xl font-bold">
+        Contacte directamente a nuestros asesores
+      </h2>
+      <p class="text-start text-xl text-pretty text-primary-blue">
+        Comunícate con el asesor que atiende tu tipo de industria para recibir
+        una atención más rápida y efectiva.
+      </p>
+    </div>
+    <div class="flex flex-row gap-8">
+      <SalesExecutiveCard
+        buttonTitle="Contactar a Carlos"
+        image="sales-executive-1"
+        name="Carlos Ramirez"
+        position="Ejecutivo Comercial Sr"
+        sector="Sector Norte"
+      />
+      <SalesExecutiveCard
+        buttonTitle="Contactar a Ingrid"
+        image="sales-executive-2"
+        name="Ingrid Chiclla"
+        position="Ejecutiva Comercial Sr"
+        sector="Sector Sur"
+      />
+    </div>
+  </div>
+  <div class="absolute z-10 size-full inset-0">
+    <div class="absolute inset-0 bg-light-blue opacity-90"></div>
+    <img
+      src="src/assets/img/our-sales-team-bg.jpg"
+      alt="Our Sales Team"
+      class="w-full h-full object-cover object-center"
+    />
+  </div>
+</section>

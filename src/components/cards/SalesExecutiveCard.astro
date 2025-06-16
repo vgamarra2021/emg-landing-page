@@ -1,0 +1,28 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+
+interface Props {
+  image: string;
+  name: string;
+  position: string;
+  sector: string;
+  buttonTitle: string;
+}
+const { image, name, position, sector, buttonTitle }: Props = Astro.props;
+---
+
+<article
+  class="flex flex-col p-4 border-md border border-primary-blue w-[300px] text-primary-blue rounded-xl gap-2"
+>
+  <img
+    class="w-full aspect-[9/12] rounded-sm"
+    src=`src/assets/img/${image}.jpg`
+    alt="Ejecutivo de ventas"
+  />
+  <div class="flex flex-col">
+    <h4 class="text-xl font-semibold text-center">{name}</h4>
+    <p class="text-lg text-center">{position}</p>
+    <p class="text-lg text-center font-medium">{sector}</p>
+  </div>
+  <PrimaryButton title={buttonTitle} color="primary-blue" className="w-full" />
+</article>

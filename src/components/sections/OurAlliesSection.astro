@@ -3,8 +3,8 @@ import BrandCard from "@components/cards/BrandCard.astro";
 import "swiper/css";
 ---
 
-<section class="custom-section">
-  <div class="custom-container flex flex-col gap-6">
+<section class="custom-section bg-light-blue">
+  <div class="custom-container flex flex-col gap-2">
     <div class="flex flex-col gap-4">
       <h2 class="text-center text-primary-orange text-2xl font-bold">
         Nuestros aliados en Seguridad
@@ -16,14 +16,6 @@ import "swiper/css";
     </div>
     <div class="w-full">
       <div class="swiper w-full" id="brand-carousel">
-        <!-- <div
-          class="absolute top-0 left-0 h-full w-6 bg-gradient-to-r from-white to-transparent z-10"
-        >
-        </div>
-        <div
-          class="absolute top-0 right-0 h-full w-6 bg-gradient-to-l from-white to-transparent z-10"
-        >
-        </div> -->
         <div class="swiper-wrapper flex items-center relative w-full">
           <div class="swiper-slide"><BrandCard image="msa-safety.png" /></div>
           <div class="swiper-slide"><BrandCard image="3M.png" /></div>
@@ -49,26 +41,27 @@ import "swiper/css";
   const swiper = new Swiper("#brand-carousel", {
     modules: [Autoplay],
     autoplay: {
-      delay: 5000,
+      delay: 300,
       disableOnInteraction: false,
     },
     slidesPerView: 4,
     spaceBetween: 35,
     freeMode: true,
     loop: true,
+    speed: 2000,
     breakpoints: {
       // when window width is >= 320px
       320: {
-        slidesPerView: 4,
+        slidesPerView: 5,
         spaceBetween: 50,
       },
       // when window width is >= 480px
       1366: {
-        slidesPerView: 5,
+        slidesPerView: 6,
         spaceBetween: 65,
       },
       1920: {
-        slidesPerView: 6,
+        slidesPerView: 7,
         spaceBetween: 80,
       },
     },

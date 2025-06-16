@@ -8,6 +8,8 @@ import ContactSection from "@components/sections/ContactSection.astro";
 import ContactMap from "@components/common/ContactMap.astro";
 import HighlightBanner from "@components/common/HighlightBanner.astro";
 import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
+import AvailabilityAndCoverageSection from "@components/sections/AvailabilityAndCoverageSection.astro";
+import OurSalesTeamSection from "@components/sections/OurSalesTeamSection.astro";
 ---
 
 <Layout title="EMG Suministros Safety | Contacto">
@@ -23,7 +25,10 @@ import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
   <HighlightBanner
     title="Nuestro conocimiento técnico y experiencia en campo nos permite asesorarte en soluciones efectivas para proteger tu entorno de trabajo."
     buttonTitle="¡Contáctenos!"
+    size="xl"
   />
+  <AvailabilityAndCoverageSection />
+  <OurSalesTeamSection />
   <OurAlliesSection />
   <Footer />
 </Layout>

@@ -1,0 +1,39 @@
+---
+import CertificateIcon from "@assets/icons/certificate-2.svg";
+import HandShakeIcon from "@assets/icons/handshake.svg";
+import IdeaIcon from "@assets/icons/idea.svg";
+import EngineerIcon from "@assets/icons/engineer.svg";
+import OurValuesItem from "@components/common/OurValuesItem.astro";
+---
+
+<section class="flex flex-row">
+  <div class="flex flex-col w-1/2 relative">
+  <img src="src/assets/img/our-values-bg.jpg" alt="Nuestros Valores" class="size-full absolute object-cover">
+  </div>
+  <div class="flex flex-col w-1/2 gap-8 p-8 bg-primary-orange text-white">
+    <OurValuesItem
+      title="Calidad"
+      description="Trabajamos con altos estándares para ofrecer productos confiables y duraderos."
+    >
+      <CertificateIcon />
+    </OurValuesItem>
+    <OurValuesItem
+      title="Confianza"
+      description="Construimos relaciones sólidas con nuestros clientes, basadas en transparencia."
+    >
+      <HandShakeIcon />
+    </OurValuesItem>
+    <OurValuesItem
+      title="Innovación"
+      description="Buscamos constantemente nuevas tecnologías y soluciones más eficientes."
+    >
+      <IdeaIcon />
+    </OurValuesItem>
+    <OurValuesItem
+      title="Especialización"
+      description="Contamos con el conocimiento técnico necesario para cada industria."
+    >
+      <EngineerIcon />
+    </OurValuesItem>
+  </div>
+</section>
