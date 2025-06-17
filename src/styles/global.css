@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @theme {
-  --color-primary-blue: #03071E;
-  --color-primary-orange: #E8461A;
-  --color-secondary-orange: #EC5526;
-  --color-light-orange: #FEF4EE;
-  --color-light-blue: #FAFBFF;
+  --color-primary-blue: #03071e;
+  --color-primary-orange: #e8461a;
+  --color-secondary-orange: #ec5526;
+  --color-light-orange: #fef4ee;
+  --color-light-blue: #fafbff;
 }
 
 * {
@@ -17,4 +17,17 @@
 
 .custom-section {
   @apply py-14 w-full;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--color-light-orange) !important;
+  opacity: 1 !important;
+  border-radius: 0px !important;
+  width: 32px !important;
+  height: 5px !important;
+  transition: background-color 0.3s ease !important;
+  margin: 0 6px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-primary-orange) !important;
 }

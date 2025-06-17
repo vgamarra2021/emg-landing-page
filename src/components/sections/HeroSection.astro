@@ -1,20 +1,40 @@
 ---
-import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+import HeroSlide from "@components/common/HeroSlide.astro";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 ---
 
-<section class="hero-section relative aspect-[16/9] w-full">
-  <div
-    class="hero-content absolute flex flex-col justify-center items-start size-full z-0 pt-[100px] "
-  >
-    <div class="custom-container flex flex-col gap-6">
-      <h1 class="text-5xl 2xl:text-7xl 2xl:leading-22 2xl:max-w-xl text-white font-bold max-w-md leading-16">
-        CALIDAD Y GARANTÍA EN CADA PROCESO
-      </h1>
-      <PrimaryButton title="Explorar Productos" />
-    </div>
+<section
+  id="hero-carousel"
+  class="hero-section relative aspect-[16/9] w-full overflow-hidden"
+>
+  <div class="swiper-wrapper flex items-center relative w-full">
+    <HeroSlide
+      image="hero-industrial-bg"
+      title="CALIDAD Y GARANTÍA EN CADA PROCESO"
+      buttonTitle="Explorar Productos"
+    />
+    <HeroSlide
+      image="hero-construction-bg"
+      title="1321321"
+      buttonTitle="Explorar Productos"
+      right
+    />
+    <HeroSlide
+      image="hero-minery-bg"
+      title="1321321"
+      buttonTitle="Explorar Productos"
+    />
+    <HeroSlide
+      image="hero-fishing-bg"
+      title="1321321"
+      buttonTitle="Explorar Productos"
+      right
+    />
   </div>
-  <div class="hero-image absolute inset-0 size-full -z-10">
-    <img class="size-full object-cover" src="src/assets/img/hero-industrial-bg.jpg" alt="Hero Image" />
+  <div class="hero-pagination absolute z-30 flex justify-center items-center mb-4">
   </div>
 </section>
 
@@ -23,3 +43,30 @@ import PrimaryButton from "@components/buttons/PrimaryButton.astro";
     max-height: calc(100dvh - 100px);
   }
 </style>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+
+  const swiper = new Swiper("#hero-carousel", {
+    modules: [Autoplay, Pagination, Navigation, EffectFade],
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    effect: "fade",
+    slidesPerView: 1,
+    spaceBetween: 0,
+    freeMode: true,
+    loop: true,
+    speed: 2000,
+    pagination: {
+      el: ".hero-pagination",
+      clickable: true,
+    },
+  });
+</script>
