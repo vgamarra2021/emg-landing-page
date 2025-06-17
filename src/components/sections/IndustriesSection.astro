@@ -7,7 +7,10 @@ import ContrastButton from "@components/buttons/ContrastButton.astro";
 import IndustryCard from "@components/cards/IndustryCard.astro";
 ---
 
-<section class="custom-section relative overflow-hidden">
+<section
+  id="industries-section"
+  class="custom-section relative overflow-hidden"
+>
   <div class="industries-section__background absolute inset-0 -z-10">
     <div class="absolute inset-0 bg-white/95"></div>
     <img
@@ -43,7 +46,7 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
       <div
         class="flex overflow-hidden h-[640px] 2xl:h-[850px] w-1/2 max-w-[700px] gap-6"
       >
-        <div class="flex flex-col gap-6 w-full">
+        <div id="industries-left" class="flex flex-col gap-6 w-full">
           <IndustryCard
             title="Sector Industrial"
             image="industrial-card-bg"
@@ -59,7 +62,10 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
             aspect="16/10"
           />
         </div>
-        <div class="flex flex-col gap-6 w-full relative 2xl:-top-30 -top-20">
+        <div
+          id="industries-right"
+          class="flex flex-col gap-6 w-full relative 2xl:-top-30 -top-20"
+        >
           <IndustryCard
             title="Sector Agrícola"
             image="agricultural-card-bg"
@@ -73,15 +79,15 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
           />
         </div>
       </div>
-      <div class="flex flex-col gap-4 w-1/2 max-w-lg">
-        <h2 class="text-3xl font-bold text-primary-blue text-pretty">
+      <div id="industry-texts" class="flex flex-col gap-4 w-1/2 max-w-lg">
+        <h2 class="text-3xl font-bold text-primary-blue text-pretty split">
           Soluciones seguras para cada industria
         </h2>
-        <h3 class="text-2xl font-semibold text-primary-blue">
+        <h3 class="text-2xl font-semibold text-primary-blue split">
           ¡Cada industria es única! <br /> Por eso, nuestras soluciones también lo
           son.
         </h3>
-        <p class="text-2xl text-primary-blue">
+        <p class="text-xl text-primary-blue split">
           Diseñamos y adaptamos equipos de protección para las exigencias reales
           de cada sector, asegurando rendimiento, durabilidad y respaldo técnico
           donde más se necesita.
@@ -91,3 +97,59 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  gsap.from("#industries-right", {
+    scrollTrigger: {
+      trigger: "#industries-section",
+      start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
+      end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
+      scrub: true, // makes the animation follow the scroll
+    },
+    y: 750,
+  });
+
+  gsap.from("#industries-left", {
+    scrollTrigger: {
+      trigger: "#industries-section",
+      start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
+      end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
+      scrub: true, // makes the animation follow the scroll
+    },
+    y: -750,
+  });
+
+  const split = new SplitText(".split", { type: "words" });
+
+  const target = document.getElementById("industry-texts");
+
+  const options = {
+    root: null, // viewport
+    threshold: 0.3, // 30% del div visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        gsap.from(split.words, {
+          duration: 0.3,
+          x: 50,
+          autoAlpha: 0,
+          ease: "power1.out",
+          stagger: 0.04,
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  if (target) observer.observe(target);
+</script>
