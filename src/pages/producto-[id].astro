@@ -1,0 +1,52 @@
+---
+import HeaderBanner from "../components/common/HeaderBanner.astro";
+import PrincipalHeader from "../components/headers/PrincipalHeader.astro";
+import SecondaryHeader from "../components/headers/SecondaryHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "@components/common/Footer.astro";
+import ProductsSection from "@components/sections/ProductsSection.astro";
+import ProductDetailSection from "@components/sections/ProductDetailSection.astro";
+import AvailabilityAndCoverageSection from "@components/sections/AvailabilityAndCoverageSection.astro";
+import OurAlliesSection from "@components/sections/OurAlliesSection.astro";
+import HighlightBanner from "@components/common/HighlightBanner.astro";
+import { getCollection } from "astro:content";
+
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+  return products.map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<Layout title="EMG Suministros Safety | Productos">
+  <HeaderBanner />
+  <PrincipalHeader />
+  <SecondaryHeader
+    title="Diseñado para tu seguridad"
+    subtitle="Creado para protegerte, adaptado a las exigencias de tu industria."
+    image="product-header-bg"
+  />
+  <ProductDetailSection product={product.data}/>
+  <HighlightBanner
+    buttonTitle="Contáctanos"
+    title="¿Tienes dudas? Nuestros expertos están listos para ayudarte."
+  >
+    <p class="text-white text-xl max-w-5xl">
+      Recibe asesoría personalizada según las necesidades de tu sector. Te
+      ayudamos a elegir el equipo de protección ideal para tu entorno.
+    </p>
+  </HighlightBanner>
+  <AvailabilityAndCoverageSection />
+  <ProductsSection
+    title="Productos Destacados"
+    mode="light"
+    image="products-section-2-bg"
+  />
+  <OurAlliesSection />
+  <Footer />
+</Layout>

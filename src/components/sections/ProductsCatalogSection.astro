@@ -1,0 +1,114 @@
+---
+import ProductCard from "@components/cards/ProductCard.astro";
+import ProductsSearchBar from "@components/common/ProductsSearchBar.astro";
+---
+
+<section class="custom-section bg-light-blue">
+  <div class="custom-container flex flex-row">
+    <div class="flex flex-col gap-6 w-[350px] shrink-0">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-xl w-max font-semibold">Busca tu Producto</h3>
+        <ProductsSearchBar />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-xl w-max font-semibold">Categorías de Seguridad</h3>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry1"
+              name="industry1"
+              class="cursor-pointer"
+            />
+            <label for="industry1" class="cursor-pointer">Construcción</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry2"
+              name="industry2"
+              class="cursor-pointer"
+            />
+            <label for="industry2" class="cursor-pointer">Manufactura</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry3"
+              name="industry3"
+              class="cursor-pointer"
+            />
+            <label for="industry3" class="cursor-pointer">Energía</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry4"
+              name="industry4"
+              class="cursor-pointer"
+            />
+            <label for="industry4" class="cursor-pointer">Transporte</label>
+          </li>
+        </ul>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-xl w-max font-semibold">Industria</h3>
+        <ul class="flex flex-col gap-2">
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry1"
+              name="industry1"
+              class="cursor-pointer"
+            />
+            <label for="industry1" class="cursor-pointer">Construcción</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry2"
+              name="industry2"
+              class="cursor-pointer"
+            />
+            <label for="industry2" class="cursor-pointer">Manufactura</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry3"
+              name="industry3"
+              class="cursor-pointer"
+            />
+            <label for="industry3" class="cursor-pointer">Energía</label>
+          </li>
+          <li class="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="industry4"
+              name="industry4"
+              class="cursor-pointer"
+            />
+            <label for="industry4" class="cursor-pointer">Transporte</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-row grow flex-wrap gap-4 xl:gap-6 2xl:gap-8 justify-center">
+      <div class="xl:w-[300px] w-[260px]">
+        <ProductCard />
+      </div>
+      <div class="xl:w-[300px] w-[260px]">
+        <ProductCard />
+      </div>
+      <div class="xl:w-[300px] w-[260px]">
+        <ProductCard />
+      </div>
+      <div class="xl:w-[300px] w-[260px]">
+        <ProductCard />
+      </div>
+      <div class="xl:w-[300px] w-[260px]">
+        <ProductCard />
+      </div>
+    </div>
+  </div>
+</section>

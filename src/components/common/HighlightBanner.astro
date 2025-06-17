@@ -12,9 +12,9 @@ const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
 ---
 
 <section class="bg-primary-orange custom-section w-full">
-  <div class="custom-container flex flex-row justify-between items-center">
+  <div class="custom-container flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
     <div class="flex flex-col gap-2">
-      <p class={`font-bold text-white text-${size} leading-11`}>
+      <p class={`font-semibold text-white text-${size} leading-11 max-w-5xl`}>
         {title}
       </p>
       <slot />

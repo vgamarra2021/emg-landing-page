@@ -1,0 +1,70 @@
+---
+import PrimaryButton from "@components/buttons/PrimaryButton.astro";
+import WhatsappIcon from "@assets/icons/whatsapp.svg";
+import HomeIcon from "@assets/icons/home.svg";
+import RightArrowIcon from "@assets/icons/right-arrow-2.svg";
+
+const { product } = Astro.props;
+console.log(product);
+---
+
+<section class="custom-section bg-light-blue">
+  <div class="custom-container flex flex-row gap-8">
+    <div
+      class="aspect-square rounded-lg overflow-hidden border border-gray-200 w-[400px] shrink-0 bg-white"
+    >
+      <img
+        class="size-full object-cover"
+        src={`src/assets/img/products/${product.imagePath}`}
+        alt="Imagen de Producto"
+      />
+    </div>
+    <div class="flex flex-col grow gap-3 max-w-3xl">
+      <div
+        class="flex flex-row gap-1 text-gray-600 font-normal text-sm items-center"
+      >
+        <a href="/">
+          <HomeIcon fill={"var(--color-gray-600)"} />
+        </a>
+        <RightArrowIcon height={18} fill={"var(--color-gray-600)"} />
+        <p>{product.category}</p>
+      </div>
+      <div class="flex flex-row gap-2">
+        <h2 class="text-2xl font-semibold text-primary-blue">
+          Máscara para Soldar KAMASA KM1343
+        </h2>
+      </div>
+      <p class="text-primary-blue">
+        El Casco North A59R con sistema de rachet clase E es la mejor elección
+        para asegurar la protección en labores peligrosas. Fabricado para
+        brindar un ajuste perfecto y la mayor seguridad, este casco de alto
+        rendimiento está diseñado especialmente para resguardar a los
+        trabajadores en ambientes de alto riesgo.
+      </p>
+      <div class="flex flex-row flex-wrap gap-2">
+        <div
+          class="bg-gray-200 text-primary-blue text-sm font-semibold px-4 py-1 rounded-md"
+        >
+          <p>Cascos de Seguridad</p>
+        </div>
+        <div
+          class="bg-gray-200 text-primary-blue text-sm font-semibold px-4 py-1 rounded-md"
+        >
+          <p>Casco de 4 puntas</p>
+        </div>
+        <div
+          class="bg-gray-200 text-primary-blue text-sm font-semibold px-4 py-1 rounded-md"
+        >
+          <p>Construcción</p>
+        </div>
+      </div>
+      <PrimaryButton title="Cotizar Producto" className="mt-1">
+        <WhatsappIcon slot="preffix" />
+      </PrimaryButton>
+      <div class="flex flex-col text-gray-600 font-normal text-sm gap-1">
+        <span>* Entrega rápida en Lima Metropolitana.</span>
+        <span>* Stock sujeto a disponibilidad.</span>
+      </div>
+    </div>
+  </div>
+</section>
