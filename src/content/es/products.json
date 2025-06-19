@@ -10,7 +10,7 @@
             "Cascos de seguridad",
             "Construcción"
         ],
-        "imagePath": "product-1.jpg",
+        "imagePath": "product-1.webp",
         "status": true,
         "showOnHome": true
     },
@@ -25,7 +25,7 @@
             "Resistentes a químicos",
             "Industria"
         ],
-        "imagePath": "guantes-nitrilo.jpg",
+        "imagePath": "guantes-nitrilo.webp",
         "status": true,
         "showOnHome": true
     },
@@ -40,7 +40,7 @@
             "Protección UV",
             "Ergonómicos"
         ],
-        "imagePath": "lentes-seguridad.jpg",
+        "imagePath": "lentes-seguridad.webp",
         "status": true,
         "showOnHome": true
     }

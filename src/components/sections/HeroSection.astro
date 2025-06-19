@@ -15,26 +15,32 @@ import "swiper/css/effect-fade";
       image="hero-industrial-bg"
       title="CALIDAD Y GARANTÍA EN CADA PROCESO"
       buttonTitle="Explorar Productos"
+      id="hero-slide-1"
     />
     <HeroSlide
       image="hero-construction-bg"
       title="SEGURIDAD QUE SE CONSTRUYE CONTIGO"
       buttonTitle="Ver EPPs para obra"
       right
+      id="hero-slide-2"
     />
     <HeroSlide
       image="hero-minery-bg"
       title="PROTECCIÓN DE CALIDAD EN ENTORNOS EXTREMOS"
       buttonTitle="Seguridad en minería"
+      id="hero-slide-3"
     />
     <HeroSlide
       image="hero-fishing-bg"
       title="SEGURIDAD QUE IMPULSA LA PRODUCTIVIDAD"
       buttonTitle="Soluciones para pesca"
       right
+      id="hero-slide-4"
     />
   </div>
-  <div class="hero-pagination absolute z-30 flex justify-center items-center mb-4">
+  <div
+    class="hero-pagination absolute z-30 flex justify-center items-center mb-4"
+  >
   </div>
 </section>
 
@@ -45,28 +51,78 @@ import "swiper/css/effect-fade";
 </style>
 
 <script>
+  import { gsap } from "gsap";
   import Swiper from "swiper";
+  import { SplitText } from "gsap/SplitText";
   import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
-  const swiper = new Swiper("#hero-carousel", {
-    modules: [Autoplay, Pagination, Navigation, EffectFade],
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    effect: "fade",
-    slidesPerView: 1,
-    spaceBetween: 0,
-    freeMode: true,
-    loop: true,
-    speed: 1500,
-    pagination: {
-      el: ".hero-pagination",
-      clickable: true,
-    },
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(SplitText);
+
+    const heroContentAnimation = (swiper: Swiper, delay: number = 0.85) => {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      const activeTitle = activeSlide.querySelector("h1")!;
+      const buttonTitle = activeSlide.querySelector(".button")!;
+      const imageTitle = activeSlide.querySelector("img")!;
+      const split = new SplitText(activeTitle, { type: "words" });
+
+      gsap.from(split.words, {
+        delay,
+        duration: 1,
+        x: 50,
+        autoAlpha: 0,
+        ease: "power1.out",
+        stagger: 0.04,
+      });
+      gsap.from(buttonTitle, {
+        delay,
+        duration: 1,
+        x: 50,
+        autoAlpha: 0,
+        ease: "power1.out",
+        stagger: 0.04,
+      });
+      gsap.fromTo(
+        imageTitle,
+        { scale: 1 },
+        {
+          delay,
+          duration: 8,
+          scale: 1.1,
+          ease: "power1.inOut",
+        }
+      );
+    };
+
+    const swiper = new Swiper("#hero-carousel", {
+      modules: [Autoplay, Pagination, Navigation, EffectFade],
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      effect: "fade",
+      slidesPerView: 1,
+      spaceBetween: 0,
+      freeMode: true,
+      loop: true,
+      speed: 1500,
+      pagination: {
+        el: ".hero-pagination",
+        clickable: true,
+      },
+      on: {
+        init: function (swiper) {
+          heroContentAnimation(swiper, 0.25);
+        },
+      },
+    });
+
+    swiper.on("slideChange", () => {
+      heroContentAnimation(swiper);
+    });
   });
 </script>
