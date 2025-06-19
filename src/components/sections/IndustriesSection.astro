@@ -5,12 +5,30 @@ import CertificateIcon from "@assets/icons/certificate.svg";
 import SpecialistIcon from "@assets/icons/specialist.svg";
 import ContrastButton from "@components/buttons/ContrastButton.astro";
 import IndustryCard from "@components/cards/IndustryCard.astro";
+import ShieldIcon from "@assets/icons/shield.svg";
 ---
 
 <section
   id="industries-section"
   class="custom-section relative overflow-hidden"
 >
+  <div
+    class="absolute flex flex-row text-white font-semibold h-fit py-4 px-4 items-center bg-primary-orange z-20 text-xl -rotate-45 bottom-72 -right-90"
+  >
+    <div class="flex flex-row gap-6" id="industries-values">
+      <ShieldIcon fill={"#fff"} />
+      <p>EXPERIENCIA</p>
+      <ShieldIcon fill={"#fff"} />
+      <p>COMPROMISO</p>
+      <ShieldIcon fill={"#fff"} />
+      <p>SEGURIDAD</p>
+      <ShieldIcon fill={"#fff"} />
+      <p>CALIDAD</p>
+      <ShieldIcon fill={"#fff"} />
+      <p>CONFIANZA</p>
+      <ShieldIcon fill={"#fff"} />
+    </div>
+  </div>
   <div class="industries-section__background absolute inset-0 -z-10">
     <div class="absolute inset-0 bg-white/95"></div>
     <img
@@ -107,12 +125,22 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(SplitText, ScrollTrigger);
 
+    gsap.from("#industries-values", {
+      scrollTrigger: {
+        trigger: "#industries-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      x: -1300,
+    });
+
     gsap.from("#industries-right", {
       scrollTrigger: {
         trigger: "#industries-section",
-        start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
-        end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
-        scrub: true, // makes the animation follow the scroll
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
       },
       y: 750,
     });
@@ -120,9 +148,9 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
     gsap.from("#industries-left", {
       scrollTrigger: {
         trigger: "#industries-section",
-        start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
-        end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
-        scrub: true, // makes the animation follow the scroll
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
       },
       y: -750,
     });
