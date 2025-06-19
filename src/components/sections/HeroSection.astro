@@ -64,34 +64,37 @@ import "swiper/css/effect-fade";
       const activeTitle = activeSlide.querySelector("h1")!;
       const buttonTitle = activeSlide.querySelector(".button")!;
       const imageTitle = activeSlide.querySelector("img")!;
-      const split = new SplitText(activeTitle, { type: "words" });
 
-      gsap.from(split.words, {
-        delay,
-        duration: 1,
-        x: 50,
-        autoAlpha: 0,
-        ease: "power1.out",
-        stagger: 0.04,
-      });
-      gsap.from(buttonTitle, {
-        delay,
-        duration: 1,
-        x: 50,
-        autoAlpha: 0,
-        ease: "power1.out",
-        stagger: 0.04,
-      });
-      gsap.fromTo(
-        imageTitle,
-        { scale: 1 },
-        {
+      document.fonts.ready.then(() => {
+        const split = new SplitText(activeTitle, { type: "words" });
+
+        gsap.from(split.words, {
           delay,
-          duration: 8,
-          scale: 1.1,
-          ease: "power1.inOut",
-        }
-      );
+          duration: 1,
+          x: 50,
+          opacity: 0,
+          ease: "power1.out",
+          stagger: 0.04,
+        });
+        gsap.from(buttonTitle, {
+          delay,
+          duration: 1,
+          x: 50,
+          opacity: 0,
+          ease: "power1.out",
+          stagger: 0.04,
+        });
+        gsap.fromTo(
+          imageTitle,
+          { scale: 1 },
+          {
+            delay,
+            duration: 8,
+            scale: 1.1,
+            ease: "power1.inOut",
+          }
+        );
+      });
     };
 
     const swiper = new Swiper("#hero-carousel", {
@@ -116,7 +119,9 @@ import "swiper/css/effect-fade";
       },
       on: {
         init: function (swiper) {
-          heroContentAnimation(swiper, 0.25);
+          document.fonts.ready.then(() => {
+            heroContentAnimation(swiper, 0.25);
+          });
         },
       },
     });

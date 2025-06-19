@@ -104,51 +104,63 @@ import IndustryCard from "@components/cards/IndustryCard.astro";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { SplitText } from "gsap/SplitText";
 
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  gsap.from("#industries-right", {
-    scrollTrigger: {
-      trigger: "#industries-section",
-      start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
-      end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
-      scrub: true, // makes the animation follow the scroll
-    },
-    y: 750,
-  });
-
-  gsap.from("#industries-left", {
-    scrollTrigger: {
-      trigger: "#industries-section",
-      start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
-      end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
-      scrub: true, // makes the animation follow the scroll
-    },
-    y: -750,
-  });
-
-  const split = new SplitText(".split", { type: "words" });
-
-  const target = document.getElementById("industry-texts");
-
-  const options = {
-    root: null, // viewport
-    threshold: 0.3, // 30% del div visible
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        gsap.from(split.words, {
-          duration: 0.3,
-          x: 50,
-          autoAlpha: 0,
-          ease: "power1.out",
-          stagger: 0.04,
-        });
-        observer.unobserve(entry.target);
-      }
+    gsap.from("#industries-right", {
+      scrollTrigger: {
+        trigger: "#industries-section",
+        start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
+        end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
+        scrub: true, // makes the animation follow the scroll
+      },
+      y: 750,
     });
-  }, options);
 
-  if (target) observer.observe(target);
+    gsap.from("#industries-left", {
+      scrollTrigger: {
+        trigger: "#industries-section",
+        start: "top bottom", // animation starts when the top of the section hits the bottom of the viewport
+        end: "bottom 50%", // animation ends when the top of the section hits the top of the viewport
+        scrub: true, // makes the animation follow the scroll
+      },
+      y: -750,
+    });
+
+    document.fonts.ready.then(() => {
+      const split = new SplitText(".split", { type: "words" });
+      const target = document.getElementById("industry-texts");
+      const button = document.querySelector("#industry-texts .button");
+
+      const options = {
+        root: null,
+        threshold: 0.3,
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const timeline = gsap.timeline();
+            timeline
+              .from(split.words, {
+                duration: 0.5,
+                x: 50,
+                opacity: 0,
+                ease: "power1.out",
+                stagger: 0.02,
+              })
+              .from(button, {
+                duration: 0.3,
+                x: 70,
+                opacity: 0,
+                ease: "power1.out",
+              });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      if (target) observer.observe(target);
+    });
+  });
 </script>
