@@ -3,17 +3,38 @@ import ShieldIcon from "@assets/icons/shield.svg";
 ---
 
 <div
-  class="flex flex-row gap-6 justify-center items-center text-primary-blue w-full py-3 font-semibold text-lg border-b border-primary-blue/50"
+  class="feature-separator flex flex-row gap-6 justify-center items-center text-primary-blue w-full py-3 font-semibold text-lg border-b border-primary-blue/50"
 >
   <ShieldIcon />
-  <p>Seguridad</p>
+  <p class="split">Seguridad</p>
   <ShieldIcon />
-  <p>Experiencia</p>
+  <p class="split">Experiencia</p>
   <ShieldIcon />
-  <p>Calidad</p>
+  <p class="split">Calidad</p>
   <ShieldIcon />
-  <p>Garantía</p>
+  <p class="split">Garantía</p>
   <ShieldIcon />
-  <p>Especialización</p>
+  <p class="split">Especialización</p>
   <ShieldIcon />
 </div>
+<script>
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(SplitText, ScrollTrigger);
+
+    gsap.to(".feature-separator", {
+      scale: 1.1,
+      gap: 50,
+      ease: "power1.out", // Smooth easing
+      scrollTrigger: {
+        trigger: ".feature-separator",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.5, // Makes the animation smoother with scroll
+      },
+    });
+  });
+</script>

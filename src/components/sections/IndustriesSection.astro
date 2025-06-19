@@ -133,6 +133,7 @@ import ShieldIcon from "@assets/icons/shield.svg";
         scrub: true,
       },
       x: -1300,
+      ease: "power1.out",
     });
 
     gsap.from("#industries-right", {
@@ -143,6 +144,7 @@ import ShieldIcon from "@assets/icons/shield.svg";
         scrub: true,
       },
       y: 750,
+      ease: "power1.out",
     });
 
     gsap.from("#industries-left", {
@@ -153,10 +155,11 @@ import ShieldIcon from "@assets/icons/shield.svg";
         scrub: true,
       },
       y: -750,
+      ease: "power1.out",
     });
 
     document.fonts.ready.then(() => {
-      const split = new SplitText(".split", { type: "words" });
+      const split = new SplitText("#industry-texts .split", { type: "words" });
       const target = document.getElementById("industry-texts");
       const button = document.querySelector("#industry-texts .button");
 
@@ -165,24 +168,30 @@ import ShieldIcon from "@assets/icons/shield.svg";
         threshold: 0.3,
       };
 
+      const timeline = gsap.timeline();
+      timeline
+        .from(split.words, {
+          duration: 0.5,
+          x: 50,
+          opacity: 0,
+          ease: "power1.out",
+          stagger: 0.02,
+        })
+        .from(
+          button,
+          {
+            duration: 0.3,
+            x: 70,
+            opacity: 0,
+            ease: "power1.out",
+          },
+          "-=0.5"
+        );
+
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const timeline = gsap.timeline();
-            timeline
-              .from(split.words, {
-                duration: 0.5,
-                x: 50,
-                opacity: 0,
-                ease: "power1.out",
-                stagger: 0.02,
-              })
-              .from(button, {
-                duration: 0.3,
-                x: 70,
-                opacity: 0,
-                ease: "power1.out",
-              });
+            timeline.restart();
             observer.unobserve(entry.target);
           }
         });

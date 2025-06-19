@@ -11,10 +11,14 @@ interface Props {
 const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
 ---
 
-<section class="bg-primary-orange custom-section w-full">
-  <div class="custom-container flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
+<section class="bg-primary-orange custom-section w-full highlight-banner">
+  <div
+    class="custom-container flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4"
+  >
     <div class="flex flex-col gap-2">
-      <p class={`font-semibold text-white text-${size} leading-11 max-w-5xl`}>
+      <p
+        class={`font-semibold text-white text-${size} leading-11 max-w-5xl split`}
+      >
         {title}
       </p>
       <slot />
@@ -24,3 +28,57 @@ const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
     </SecondaryButton>
   </div>
 </section>
+<script>
+  import { gsap } from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.fonts.ready.then(() => {
+      const split = new SplitText(".highlight-banner .split", {
+        type: "words",
+      });
+      const highLightButton = document.querySelectorAll(
+        ".highlight-banner .button"
+      );
+
+      const timeline = gsap.timeline({ paused: true });
+
+      timeline
+        .from(split.words, {
+          duration: 0.5,
+          x: 50,
+          opacity: 0,
+          ease: "power1.out",
+          stagger: 0.03,
+        })
+        .from(
+          highLightButton,
+          {
+            duration: 0.5,
+            x: 50,
+            opacity: 0,
+            ease: "power1.out",
+            stagger: 0.03,
+          },
+          "-=1.5"
+        );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              timeline.restart();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.8 }
+      );
+
+      const highlightBanners = document.querySelectorAll(".highlight-banner");
+      highlightBanners.forEach((banner) => {
+        observer.observe(banner);
+      });
+    });
+  });
+</script>

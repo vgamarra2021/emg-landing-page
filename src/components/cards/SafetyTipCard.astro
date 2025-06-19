@@ -10,24 +10,24 @@ const { title, description, image, number }: Props = Astro.props;
 ---
 
 <article
-  class="border border-primary-orange rounded-lg overflow-hidden w-[350px] h-min"
+  class="border border-primary-orange rounded-lg overflow-hidden w-[350px] h-min cursor-pointer group"
 >
-  <div class="w-full aspect-16/9 relative">
+  <div class="w-full aspect-16/9 relative overflow-hidden">
     <img
-      class="size-full object-cover"
+      class="size-full object-cover group-hover:scale-115 transition-transform duration-300 ease-in-out"
       src={`src/assets/img/tips/${image}.webp`}
       alt="Imagen Tip de Seguridad"
     />
   </div>
   <div class="flex flex-col p-4 gap-2">
-    <strong class="font-semibold text-xl text-center text-primary-orange"
+    <strong class="font-semibold text-xl text-center text-primary-orange "
       >{title}</strong
     >
     <p class="text-center text-lg text-primary-blue">
       {description}
     </p>
     <div class="flex flex-row items-center gap-4 w-5/6 mx-auto">
-      <p class="text-3xl text font-bold text-primary-orange">{number}</p>
+      <p class="text-3xl text font-bold text-primary-orange group-hover:scale-125 transition-transform duration-300 ease-in-out">{number}</p>
       <hr class="w-full border border-primary-orange" />
     </div>
   </div>
