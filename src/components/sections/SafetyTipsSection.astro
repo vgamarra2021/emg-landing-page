@@ -7,9 +7,9 @@ const tips = await getCollection("tips");
 console.log(tips);
 ---
 
-<section class="custom-section">
+<section class="safety-tips-section custom-section">
   <div class="custom-container flex flex-col gap-6">
-    <div class="flex flex-col gap-4">
+    <div class="safety-tips-section__title-container flex flex-col gap-4">
       <h2 class="text-center text-primary-orange text-2xl font-bold">
         Consejos de Seguridad
       </h2>
@@ -38,3 +38,40 @@ console.log(tips);
     </div>
   </div>
 </section>
+<script>
+  import {
+    sectionIntersectionObserver,
+    sectionTitleUpAnimation,
+    scaleEnterAnimation,
+    scaleLeaveAnimation
+  } from "@functions/animations";
+  import { gsap } from "gsap";
+
+  import { SplitText } from "gsap/SplitText";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(SplitText);
+
+    const section = document.querySelector(".safety-tips-section")!;
+    const title = document.querySelector(".safety-tips-section__title-container h2")!;
+    const splitDescription = new SplitText(".safety-tips-section__title-container p", {
+      type: "words",
+    });
+
+    const observer = sectionIntersectionObserver(() => {
+      sectionTitleUpAnimation([title, ...splitDescription.words]);
+    });
+
+    observer.observe(section);
+
+    const safetyTipCards = document.querySelectorAll(".safety-tip-card");
+    safetyTipCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        scaleEnterAnimation([card], 0.1)
+      });
+      card.addEventListener("mouseleave", () => {
+        scaleLeaveAnimation([card], 0.1)
+      });
+    });    
+  });
+</script>

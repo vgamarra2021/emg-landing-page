@@ -8,7 +8,7 @@ const { title, image } = Astro.props;
 ---
 
 <article
-  class="aspect-[11/16] relative w-[300px] overflow-hidden rounded-xl cursor-pointer hover:border-3 border-secondary-orange duration-300 group"
+  class="category-card aspect-[11/16] relative w-[300px] overflow-hidden rounded-xl cursor-pointer border-3 border-secondary-orange duration-300 group"
 >
   <div class="absolute size-full -z-10">
     <div
@@ -28,3 +28,37 @@ const { title, image } = Astro.props;
     </p>
   </div>
 </article>
+
+<script>
+  import { gsap } from "gsap";
+  import {
+    scaleEnterAnimation,
+    scaleLeaveAnimation,
+  } from "@functions/animations";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const categoryCards = document.querySelectorAll(".category-card");
+
+    categoryCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        scaleEnterAnimation([card], 0.1);
+        gsap.from(card.querySelector("svg"), {
+          rotation: "60",
+          scale: 0.8,
+          stagger: 0.1,
+          duration: 0.5,
+          ease: "back",
+        });
+      });
+
+      card.addEventListener("mouseleave", () => {
+        scaleLeaveAnimation([card], 0.1);
+        gsap.to(card.querySelector("svg"), {
+          rotation: "0",
+          duration: 0.5,
+          ease: "back",
+        });
+      });
+    });
+  });
+</script>

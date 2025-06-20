@@ -13,43 +13,68 @@ import FallProtectionIcon from "@assets/icons/categories/fall-protection.svg";
 import BodyProtectionIcon from "@assets/icons/categories/body-protection.svg";
 import RespiratoryProtectionIcon from "@assets/icons/categories/respiratory-protection.svg";
 import RoadSafetyIcon from "@assets/icons/categories/road-safety.svg";
-
 ---
 
-<div class="custom-section bg-light-orange">
+<div class="categories-section custom-section bg-light-orange">
   <div class="flex flex-col custom-container gap-8">
-    <div class="flex flex-row w-full justify-between items-center">
-      <p class="text-primary-orange text-2xl font-bold leading-12">
+    <div
+      class="categories-section__title-container flex flex-row w-full justify-between items-center"
+    >
+      <p class="text-primary-orange text-2xl font-bold leading-12 split">
         Categorías de Seguridad
       </p>
       <PrimaryButton title="Explorar Catálogo">
-        <RightArrowIcon stroke="#fff"/>
+        <RightArrowIcon stroke="#fff" />
       </PrimaryButton>
     </div>
     <div class="flex flex-row gap-6 flex-wrap justify-center z-10">
       <CategoryCard title="Protección Cabeza" image="head-protection-bg">
-        <HeadProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <HeadProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Protección Ocular" image="eye-protection-bg">
         <EyeProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
       </CategoryCard>
       <CategoryCard title="Protección Auditiva" image="hearing-protection-bg">
-        <HearingProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <HearingProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
-      <CategoryCard title="Protección Respiratoria" image="respiratory-protection-bg">
-        <RespiratoryProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+      <CategoryCard
+        title="Protección Respiratoria"
+        image="respiratory-protection-bg"
+      >
+        <RespiratoryProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Protección Manos" image="hand-protection-bg">
-        <HandProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <HandProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Protección Corporal" image="body-protection-bg">
-        <BodyProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <BodyProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Protección Pies" image="foot-protection-bg">
-        <FootProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <FootProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Protección Caídas" image="fall-protection-bg">
-        <FallProtectionIcon height={80} fill={"var(--color-secondary-orange)"} />
+        <FallProtectionIcon
+          height={80}
+          fill={"var(--color-secondary-orange)"}
+        />
       </CategoryCard>
       <CategoryCard title="Seguridad Vial" image="road-safety-bg">
         <RoadSafetyIcon height={80} fill={"var(--color-secondary-orange)"} />
@@ -60,3 +85,23 @@ import RoadSafetyIcon from "@assets/icons/categories/road-safety.svg";
     </div>
   </div>
 </div>
+
+<script>
+  import {
+    sectionTitleLeftAnimation,
+    sectionIntersectionObserver,
+  } from "@functions/animations";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const titleContainer = document.querySelector(
+      ".categories-section__title-container"
+    )!;
+    const categoriesSection = document.querySelector(".categories-section")!;
+    const titleText = titleContainer.querySelector("p")!;
+    const titleButton = titleContainer.querySelector(".button")!;
+
+    sectionIntersectionObserver(() => {
+      sectionTitleLeftAnimation([titleText, titleButton]);
+    }).observe(categoriesSection);
+  });
+</script>

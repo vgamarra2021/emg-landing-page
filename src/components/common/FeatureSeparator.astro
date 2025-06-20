@@ -19,21 +19,20 @@ import ShieldIcon from "@assets/icons/shield.svg";
 </div>
 <script>
   import { gsap } from "gsap";
-  import { SplitText } from "gsap/SplitText";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(SplitText, ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(".feature-separator", {
       scale: 1.1,
       gap: 50,
-      ease: "power1.out", // Smooth easing
+      ease: "power1.out",
       scrollTrigger: {
         trigger: ".feature-separator",
         start: "top bottom",
         end: "bottom top",
-        scrub: 0.5, // Makes the animation smoother with scroll
+        scrub: 0.5,
       },
     });
   });

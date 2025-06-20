@@ -14,7 +14,7 @@ interface Props {
 const { title = "Nuestros Productos", mode = "dark", image = "products-section-bg" }: Props = Astro.props;
 ---
 
-<section class="custom-section relative overflow-hidden">
+<section class="products-section custom-section relative overflow-hidden">
   <div class="absolute size-full -z-10 inset-0">
     <div
       class={`absolute size-full  ${mode === "dark" ? "bg-primary-blue/80" : "bg-light-blue/90"}`}
@@ -27,7 +27,7 @@ const { title = "Nuestros Productos", mode = "dark", image = "products-section-b
     />
   </div>
   <div class="flex flex-col custom-container relative z-10 gap-8">
-    <div class="flex flex-row w-full justify-between items-center">
+    <div class="products-section__title-container flex flex-row w-full justify-between items-center">
       <p
         class={`${mode === "dark" ? "text-white" : "text-primary-blue"} text-2xl font-semibold leading-12`}
       >
@@ -126,5 +126,24 @@ const { title = "Nuestros Productos", mode = "dark", image = "products-section-b
         spaceBetween: 40,
       },
     },
+  });
+</script>
+<script>
+  import {
+    sectionTitleLeftAnimation,
+    sectionIntersectionObserver,
+  } from "@functions/animations";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const titleContainer = document.querySelector(
+      ".products-section__title-container"
+    )!;
+    const categoriesSection = document.querySelector(".products-section")!;
+    const titleText = titleContainer.querySelector("p")!;
+    const titleButton = titleContainer.querySelector(".button")!;
+
+    sectionIntersectionObserver(() => {
+      sectionTitleLeftAnimation([titleText, titleButton]);
+    }).observe(categoriesSection);
   });
 </script>

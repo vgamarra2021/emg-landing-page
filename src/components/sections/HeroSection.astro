@@ -110,17 +110,20 @@ import "swiper/css/effect-fade";
       effect: "fade",
       slidesPerView: 1,
       spaceBetween: 0,
-      freeMode: true,
+      freeMode: false,
       loop: true,
       speed: 1500,
+      allowTouchMove: false,
       pagination: {
         el: ".hero-pagination",
         clickable: true,
       },
       on: {
-        init: function (swiper) {
-          document.fonts.ready.then(() => {
-            heroContentAnimation(swiper, 0.25);
+        afterInit: function (swiper) {
+          document.addEventListener("DOMContentLoaded", () => {
+            document.fonts.ready.then(() => {
+              heroContentAnimation(swiper, 0);
+            });
           });
         },
       },

@@ -3,7 +3,7 @@ import PrimaryButton from "@components/buttons/PrimaryButton.astro";
 import RightArrowIcon from "@assets/icons/right-arrow.svg";
 ---
 
-<section class="custom-section relative overflow-hidden">
+<section class="electro-section custom-section relative overflow-hidden">
   <div class="size absolute inset-0">
     <div class="absolute bg-black/70 size-full -z-10 inset-0"></div>
     <img
@@ -12,7 +12,9 @@ import RightArrowIcon from "@assets/icons/right-arrow.svg";
       class="absolute size-full object-cover -z-20"
     />
   </div>
-  <div class="flex flex-col custom-container size-full z-10 relative gap-4 items-center">
+  <div
+    class="flex flex-col custom-container size-full z-10 relative gap-4 items-center"
+  >
     <p class="text-yellow-400 text-center text-lg font-semibold">
       Explora nuestros suministros industriales
     </p>
@@ -20,7 +22,24 @@ import RightArrowIcon from "@assets/icons/right-arrow.svg";
       SOLUCIONES CONFIABLES PARA MANTENIMIENTO, PRODUCCIÓN Y OPERACIONES
     </h4>
     <PrimaryButton title="Ver Soluciones" color="yellow">
-      <RightArrowIcon  stroke="#000"/>
+      <RightArrowIcon stroke="#000" />
     </PrimaryButton>
   </div>
 </section>
+<script>
+  import {
+    sectionTitleUpAnimation,
+    sectionIntersectionObserver,
+  } from "@functions/animations";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const electroSection = document.querySelector(".electro-section")!;
+    const titleText = electroSection.querySelector("p")!;
+    const titleText2 = electroSection.querySelector("h4")!;
+    const titleButton = electroSection.querySelector(".button")!;
+
+    sectionIntersectionObserver(() => {
+      sectionTitleUpAnimation([titleText, titleText2, titleButton], 0.15);
+    }).observe(electroSection);
+  });
+</script>

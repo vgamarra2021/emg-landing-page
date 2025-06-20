@@ -7,10 +7,36 @@ interface Props {
 const { title, subtitle } = Astro.props;
 ---
 
-<article class="flex flex-row gap-4 items-start justify-center rounded-3xl border-primary-orange border p-8 bg-white h-min">
+<article
+  class="primary-feature-card flex flex-row gap-4 items-start justify-center rounded-3xl border-primary-orange border p-8 bg-white h-min"
+>
   <slot />
   <div class="flex flex-col gap-1 text-primary-blue">
     <p class="font-semibold text-2xl">{title}</p>
     <p class="text-xl">{subtitle}</p>
   </div>
 </article>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.primary-feature-card', {
+      scrollTrigger: {
+        trigger: '.primary-feature-card',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+      },
+      y: -100,
+      opacity: 0,
+      rotation: "random(-80, 80)",
+      stagger: 0.1,
+      duration: .5,
+      ease: "back",
+    });
+  });
+</script>
