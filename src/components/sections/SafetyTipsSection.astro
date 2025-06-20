@@ -43,7 +43,7 @@ console.log(tips);
     sectionIntersectionObserver,
     sectionTitleUpAnimation,
     scaleEnterAnimation,
-    scaleLeaveAnimation
+    scaleLeaveAnimation,
   } from "@functions/animations";
   import { gsap } from "gsap";
 
@@ -53,25 +53,32 @@ console.log(tips);
     gsap.registerPlugin(SplitText);
 
     const section = document.querySelector(".safety-tips-section")!;
-    const title = document.querySelector(".safety-tips-section__title-container h2")!;
-    const splitDescription = new SplitText(".safety-tips-section__title-container p", {
-      type: "words",
-    });
+    const title = document.querySelector(
+      ".safety-tips-section__title-container h2"
+    )!;
+    document.fonts.ready.then(() => {
+      const splitDescription = new SplitText(
+        ".safety-tips-section__title-container p",
+        {
+          type: "words",
+        }
+      );
 
-    const observer = sectionIntersectionObserver(() => {
-      sectionTitleUpAnimation([title, ...splitDescription.words]);
-    });
-
-    observer.observe(section);
-
-    const safetyTipCards = document.querySelectorAll(".safety-tip-card");
-    safetyTipCards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        scaleEnterAnimation([card], 0.1)
+      const observer = sectionIntersectionObserver(() => {
+        sectionTitleUpAnimation([title, ...splitDescription.words]);
       });
-      card.addEventListener("mouseleave", () => {
-        scaleLeaveAnimation([card], 0.1)
+
+      observer.observe(section);
+
+      const safetyTipCards = document.querySelectorAll(".safety-tip-card");
+      safetyTipCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          scaleEnterAnimation([card], 0.1);
+        });
+        card.addEventListener("mouseleave", () => {
+          scaleLeaveAnimation([card], 0.1);
+        });
       });
-    });    
+    });
   });
 </script>
