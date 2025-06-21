@@ -3,25 +3,27 @@ interface Props {
   title: string;
   image: string;
   aspect?: string;
+  href?: string;
 }
 
-const { title, image, aspect = "9/13" } = Astro.props;
+const { title, image, aspect = "9/13", href = "#" } = Astro.props;
 ---
 
 <article
-  class={`rounded-2xl overflow-hidden relative w-full flex-shrink-0`}
+  class={`industry-card rounded-2xl overflow-hidden relative w-full flex-shrink-0 group cursor-pointer duration-300`}
   style={`aspect-ratio: ${aspect}`}
+  onclick={`window.location.href='${href}'`}
 >
   <div class="flex absolute z-10 p-3 size-full items-end">
     <p class="font-semibold text-xl text-shadow-xs text-white w-3/4">{title}</p>
   </div>
   <div class="flex absolute -z-10 size-full">
     <div
-      class="absolute size-full -z-10 bg-gradient-to-b from-black/10 to-black/80"
+      class="absolute size-full -z-10 bg-gradient-to-b from-black/10 to-black/80 group-hover:from-black/0 group-hover:to-black/60 transition-colors duration-300"
     >
     </div>
     <img
-      class="size-full object-cover -z-20 absolute"
+      class="size-full object-cover -z-20 absolute group-hover:scale-110 transition-transform duration-300"
       src={`img/${image}.webp`}
       alt={title + "bg"}
     />

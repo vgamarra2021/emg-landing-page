@@ -8,8 +8,16 @@ interface Props {
   buttonTitle: string;
   right?: boolean;
   id?: string;
+  href?: string;
 }
-const { title, image, buttonTitle, right = false, id } = Astro.props as Props;
+const {
+  title,
+  image,
+  buttonTitle,
+  right = false,
+  id,
+  href,
+} = Astro.props as Props;
 ---
 
 <div class="swiper-slide" id={id}>
@@ -24,7 +32,7 @@ const { title, image, buttonTitle, right = false, id } = Astro.props as Props;
       >
         {title}
       </h1>
-      <PrimaryButton title={buttonTitle}>
+      <PrimaryButton title={buttonTitle} href={href}>
         <RightArrowIcon stroke="#fff" />
       </PrimaryButton>
     </div>

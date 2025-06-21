@@ -6,9 +6,10 @@ interface Props {
   title: string;
   buttonTitle: string;
   size?: string;
+  href?: string;
 }
 
-const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
+const { title, buttonTitle, size = "2xl", href }: Props = Astro.props;
 ---
 
 <section class="bg-primary-orange custom-section w-full highlight-banner">
@@ -23,7 +24,7 @@ const { title, buttonTitle, size = "2xl" }: Props = Astro.props;
       </p>
       <slot />
     </div>
-    <SecondaryButton title={buttonTitle}>
+    <SecondaryButton title={buttonTitle} href={href}>
       <RightArrowIcon stroke="#fff" />
     </SecondaryButton>
   </div>

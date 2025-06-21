@@ -1,6 +1,17 @@
 ---
 import PrimaryButton from "@components/buttons/PrimaryButton.astro";
 import SecondaryButton from "@components/buttons/SecondaryButton.astro";
+
+interface Props {
+  productId?: number;
+  product: any;
+}
+const { productId = 1, product }: Props = Astro.props;
+
+const message = encodeURIComponent(
+  `Hola EMG, estoy interesado en adquirir el producto ${product?.name ?? ""}. ¿Podrían darme más detalles?`
+);
+const href = `https://wa.me/51922297479?text=${message}`;
 ---
 
 <article
@@ -8,18 +19,19 @@ import SecondaryButton from "@components/buttons/SecondaryButton.astro";
 >
   <img
     class="aspect-square object-cover"
-    src="img/products/product-1.webp"
+    src={`img/products/product-${productId}.webp`}
     alt="Imagen de Producto"
   />
   <p class="uppercase text-primary-blue w-full font-semibold text-lg">
     POLO DE SEGURIDAD MANGA LARGA
   </p>
   <div class="flex flex-col gap-2">
-    <PrimaryButton title="Cotizar" className="w-full text-center" />
+    <PrimaryButton title="Cotizar" className="w-full text-center" href={href} />
     <SecondaryButton
       title="Detalle de Producto"
       color="primary-orange"
       className="w-full justify-center"
+      href={`/producto-${productId}`}
     />
   </div>
 </article>

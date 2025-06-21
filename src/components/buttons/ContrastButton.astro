@@ -1,10 +1,14 @@
 ---
 interface Props {
   title: string;
+  href?: string;
 }
-const { title }: Props = Astro.props;
+const { title, href = "#" }: Props = Astro.props;
 ---
 
-<div class="button bg-primary-blue w-fit h-fit px-6 py-2 rounded-md cursor-pointer">
+<a
+  href={href}
+  class="button bg-primary-blue w-fit h-fit px-6 py-2 rounded-md cursor-pointer"
+>
   <p class="text-white font-semibold text-lg">{title}</p>
-</div>
+</a>
