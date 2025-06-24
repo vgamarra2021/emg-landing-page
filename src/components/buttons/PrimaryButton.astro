@@ -1,44 +1,74 @@
 ---
 interface Props {
   title: string;
-  color?: string;
+  color?: "primary-blue" | "yellow" | "primary-orange";
   className?: string;
   href?: string;
   target?: string;
 }
-const { title, color, className, href = "#", target }: Props = Astro.props;
+const {
+  title,
+  color = "primary-orange",
+  className,
+  href = "#",
+  target,
+}: Props = Astro.props;
+
+const colorClasses = {
+  "primary-blue": "bg-primary-blue text-white",
+  yellow: "bg-yellow-400 text-black",
+  "primary-orange": "bg-primary-orange text-white",
+};
 ---
 
-{
-  color === "primary-blue" ? (
-    <a
-      href={href}
-      target={target}
-      class={`button flex items-center justify-center gap-2 bg-primary-blue w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
-    >
-      <slot name="preffix" />
-      <p class="text-white font-semibold text-lg">{title}</p>
-      <slot />
-    </a>
-  ) : color === "yellow" ? (
-    <a
-      href={href}
-      target={target}
-      class={`button flex items-center justify-center gap-2 bg-yellow-400 w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
-    >
-      <slot name="preffix" />
-      <p class="text-black font-semibold text-lg">{title}</p>
-      <slot />
-    </a>
-  ) : (
-    <a
-      href={href}
-      target={target}
-      class={`button flex items-center justify-center gap-2 bg-primary-orange w-fit h-fit px-6 py-2 rounded-md cursor-pointer ${className ?? ""}`}
-    >
-      <slot name="preffix" />
-      <p class="text-white font-semibold text-lg">{title}</p>
-      <slot />
-    </a>
-  )
-}
+<a
+  href={href}
+  target={target}
+  class={`button flex items-center justify-center gap-2 w-fit h-fit px-6 py-2 rounded-md cursor-pointer overflow-hidden relative ${colorClasses[color]} ${className ?? ""}`}
+>
+  <div class="flex flex-row gap-2 w-max items-center">
+    <slot name="preffix" />
+    <p class="font-semibold text-lg w-max">{title}</p>
+    <slot />
+  </div>
+  <div class="anim"></div>
+</a>
+
+<style>
+  .anim {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #c3dafe;
+    z-index: -1;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const animElm = document.querySelector(".anim")!;
+  const slideElm = document.querySelector(".button")!;
+
+  slideElm.addEventListener("mouseenter", enterCall);
+  slideElm.addEventListener("mouseleave", leaveCall);
+
+  const enterAnim = gsap.timeline();
+  enterAnim.to(animElm, { left: "0%", duration: 0.5 });
+  enterAnim.reversed(true);
+
+  const leaveAnim = gsap.timeline();
+  leaveAnim.to(animElm, { left: "100%", duration: 0.5 });
+  leaveAnim.reversed(true);
+
+  function enterCall() {
+    // restart (play) when tween is not active
+    if (!enterAnim.isActive()) enterAnim.restart();
+  }
+  function leaveCall() {
+    // restart (play) when tween is not active
+    if (!leaveAnim.isActive()) leaveAnim.restart();
+  }
+</script>
