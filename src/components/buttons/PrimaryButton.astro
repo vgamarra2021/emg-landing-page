@@ -70,13 +70,10 @@ const colorClasses = {
     leaveAnim.reversed(true);
 
     function enterCall() {
-      console.log("enter");
-      // restart (play) when tween is not active
       if (!enterAnim.isActive()) enterAnim.restart();
     }
+    
     function leaveCall() {
-      console.log("exit");
-      // restart (play) when tween is not active
       if (!leaveAnim.isActive()) leaveAnim.restart();
     }
   });
