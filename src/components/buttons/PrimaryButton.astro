@@ -24,51 +24,60 @@ const colorClasses = {
 <a
   href={href}
   target={target}
-  class={`button flex items-center justify-center gap-2 w-fit h-fit px-6 py-2 rounded-md cursor-pointer overflow-hidden relative ${colorClasses[color]} ${className ?? ""}`}
+  class={`button flex items-center justify-center gap-2 w-fit h-fit px-6 py-2 rounded-md cursor-pointer overflow-hidden relative container ${colorClasses[color]} ${className ?? ""}`}
 >
-  <div class="flex flex-row gap-2 w-max items-center">
+  <div class="flex flex-row gap-2 w-max items-center z-20">
     <slot name="preffix" />
     <p class="font-semibold text-lg w-max">{title}</p>
     <slot />
   </div>
-  <div class="anim"></div>
+  <div class="anim size-full z-10 bg-primary-blue"></div>
 </a>
 
 <style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .anim {
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #c3dafe;
-    z-index: -1;
+    z-index: 1;
   }
 </style>
 
 <script>
   import gsap from "gsap";
 
-  const animElm = document.querySelector(".anim")!;
-  const slideElm = document.querySelector(".button")!;
+  document.addEventListener("DOMContentLoaded", () => {
+    const slideElm = document.querySelector(".button")!;
+    const animElm = slideElm.querySelector(".anim")!;
 
-  slideElm.addEventListener("mouseenter", enterCall);
-  slideElm.addEventListener("mouseleave", leaveCall);
+    slideElm.addEventListener("mouseenter", enterCall);
+    slideElm.addEventListener("mouseleave", leaveCall);
 
-  const enterAnim = gsap.timeline();
-  enterAnim.to(animElm, { left: "0%", duration: 0.5 });
-  enterAnim.reversed(true);
+    const enterAnim = gsap.timeline();
+    enterAnim.to(animElm, { left: "0%", duration: 0.5 });
+    enterAnim.reversed(true);
 
-  const leaveAnim = gsap.timeline();
-  leaveAnim.to(animElm, { left: "100%", duration: 0.5 });
-  leaveAnim.reversed(true);
+    const leaveAnim = gsap.timeline();
+    leaveAnim.to(animElm, { left: "100%", duration: 0.5 });
+    leaveAnim.reversed(true);
 
-  function enterCall() {
-    // restart (play) when tween is not active
-    if (!enterAnim.isActive()) enterAnim.restart();
-  }
-  function leaveCall() {
-    // restart (play) when tween is not active
-    if (!leaveAnim.isActive()) leaveAnim.restart();
-  }
+    function enterCall() {
+      console.log("enter");
+      // restart (play) when tween is not active
+      if (!enterAnim.isActive()) enterAnim.restart();
+    }
+    function leaveCall() {
+      console.log("exit");
+      // restart (play) when tween is not active
+      if (!leaveAnim.isActive()) leaveAnim.restart();
+    }
+  });
 </script>

@@ -2,13 +2,15 @@
 interface Props {
   title: string;
   image: string;
+  href?: string;
 }
 
-const { title, image } = Astro.props;
+const { title, image, href = "#" } = Astro.props;
 ---
 
-<article
-  class="category-card aspect-[11/16] relative w-[300px] overflow-hidden rounded-xl cursor-pointer border-3 border-secondary-orange duration-300 group"
+<a
+  class="category-card aspect-[11/16] relative w-[300px] overflow-hidden rounded-xl cursor-pointer border-3 border-secondary-orange duration-300 group select-none"
+  href={href}
 >
   <div class="absolute size-full -z-10">
     <div
@@ -27,7 +29,7 @@ const { title, image } = Astro.props;
       {title}
     </p>
   </div>
-</article>
+</a>
 
 <script>
   import { gsap } from "gsap";
